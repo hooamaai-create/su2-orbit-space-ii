@@ -35,12 +35,17 @@
   results\results15:E3   pred -0.023  meas -0.109  dev -0.57 sigma  (n=48)
   results\results16:G1   pred -0.041  meas -0.022  dev +0.07 sigma  (n=16)
   results\results16:G2   pred -0.010  meas +0.254  dev +0.76 sigma  (n=12)
+  results\results17A:S1  pred -0.022  meas -0.103  dev -1.58 sigma  (n=384)
+  results\results17A:S2  pred -0.024  meas +0.004  dev +0.44 sigma  (n=256)
+  results\results17A:S3  pred -0.508  meas -0.502  dev +0.15 sigma  (n=384)
+  results\results17B:S4  pred -0.519  meas -0.289  dev +4.41 sigma  (n=256)
+  results\results17B:S5  pred -0.210  meas -0.221  dev -0.18 sigma  (n=256)
   results\results18:H1   pred -0.024  meas +0.115  dev +1.08 sigma  (n=64)
   results\results18:H2   pred -0.024  meas -0.291  dev -2.65 sigma  (n=96)
   results\results19:J1   pred -0.520  meas -0.687  dev -0.93 sigma  (n=16)
 
-  TOTAL: 37 blind points   chi2 = 41.39   chi2/dof = 1.12
-  worst point: results\results18:H2 at -2.65 sigma
+  TOTAL: 42 blind points   chi2 = 63.57   chi2/dof = 1.51
+  worst point: results\results17B:S4 at +4.41 sigma
 
 ======================================================================
 2. LOCALIZATION LAW — r(lambda, f1), partial (plaquette removed)
@@ -54,11 +59,16 @@
   results\results15:E3   (b=2.3, L=14, n= 48)  r = +0.242  (+1.6 sigma)
   results\results16:G1   (b=2.4, L=20, n= 16)  r = +0.673  (+2.8 sigma)
   results\results16:G2   (b=2.3, L=18, n= 12)  r = +0.794  (+3.1 sigma)
+  results\results17A:S1   (b=2.2, L= 8, n=384)  r = +0.412  (+8.5 sigma)
+  results\results17A:S2   (b=2.2, L=10, n=256)  r = +0.331  (+5.5 sigma)
+  results\results17A:S3   (b=2.4, L= 8, n=384)  r = +0.504  (+10.8 sigma)
+  results\results17B:S4   (b=2.6, L=10, n=256)  r = +0.201  (+3.2 sigma)
+  results\results17B:S5   (b=2.3, L=10, n=256)  r = +0.373  (+6.2 sigma)
   results\results18:H1   (b=2.2, L=12, n= 64)  r = +0.276  (+2.2 sigma)
   results\results18:H2   (b=2.2, L=10, n= 96)  r = +0.519  (+5.5 sigma)
   results\results19:J1   (b=2.6, L=20, n= 16)  r = +0.306  (+1.1 sigma)
 
-  sign-consistency: 12/12 positive   combined (Stouffer) = +10.6 sigma
+  sign-consistency: 17/17 positive   combined (Stouffer) = +17.2 sigma
 
 ======================================================================
 3. LAMBDA_RGZ LADDER — 8-shell fits (free at G1; constrained elsewhere)

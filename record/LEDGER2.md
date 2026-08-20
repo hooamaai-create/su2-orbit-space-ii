@@ -74,3 +74,52 @@ each RUN*_SPEC.md and predate their data. Append-only from here.
   RGZ fits (Cucchieri-Dudal-Mendes-Vandersickel; Dudal-Oliveira-Vandersickel);
   novelty claims confined to the blind per-config laws and the visibility
   criterion.
+
+## 2026-08-20 17:05 — Run 17 (v3) verdict: the curve BREAKS at deep coherence
+- Copy-control gate (DR-2) PASSES: mean copy-scatter of lambda_min across 6
+  independent gauge-fixing restarts = 0.00475 vs ensemble scatter 0.01909,
+  ratio 0.249 (gate: fail above 0.50). First quantification of first-copy
+  ambiguity in this programme; all shape claims below are therefore valid.
+- P8 FAILS for the first time. S4 (2.6, L=10, n=256) predicted -0.519,
+  measured -0.289: +4.41 sigma, the worst blind point in the programme's
+  history and the highest-statistics measurement ever taken in that region.
+  Running tally now 42 blind points, chi2/dof = 1.51 (was 1.12 over 37).
+- CORRECTION TO A PUBLISHED CLAIM. Deduplicated pooling of every blind point
+  by coherence band shows the frozen curve is correct where it was calibrated
+  and wrong at both ends:
+      f1 < 0.50        23 pts  measured r = -0.117  dev -0.068+-0.025 (2.7s)
+      f1 0.50-0.60      5 pts  r = -0.438           dev -0.089+-0.073 (1.2s)
+      f1 0.60-0.75      5 pts  r = -0.492           dev +0.018+-0.040 (0.4s)
+      f1 0.75-0.85      3 pts  r = -0.396           dev +0.156+-0.129 (1.2s)
+      f1 > 0.85         6 pts  r = -0.349           dev +0.212+-0.048 (4.4s)
+  The correlation therefore PEAKS near f1 ~ 0.65 at |r| ~ 0.49 and DECLINES to
+  |r| ~ 0.35 at deep coherence; it does not saturate at -0.52. The "locked
+  plateau at -0.51..-0.53" stated in Part I and Part II is WRONG at f1 > 0.85
+  and is corrected here. The OFF region also carries a small non-zero baseline
+  (-0.117, 2.7 sigma) rather than exactly zero.
+  Provenance: this was found because a blind pre-registered prediction failed,
+  not by refitting; the four independent measurements at (2.6, L=10) across
+  runs 10/12/14/17 (-0.534/-0.336/-0.413/-0.289, n = 40/48/64/256) are
+  mutually consistent (chi2 = 2.8/2) and average -0.325.
+  NO REFIT IS CLAIMED. A peaked replacement curve must be frozen and blind-
+  tested on new points before any such shape enters the record (RUN21).
+- E1''/E2'' (edge shape): copy-gate passed, so these stand. The edge is NOT a
+  single universality class across the gate. Skew is flat and positive across
+  four points spanning f1 = 0.38-0.70 (+0.44, +0.63, +0.42, +0.37) and FLIPS
+  SIGN to -0.63(12) at f1 = 0.896. Template verdicts (AIC delta > 4): skew-
+  normal wins at the two coherent points (S4, S3); undecided at the three
+  dead/edge points, where Tracy-Widom and skew-normal are within 2 AIC of each
+  other. Registered as measured: no universal edge class at accessible
+  spacings; the shape transition co-locates with the curve's failure region.
+- P6'' (H-II FINAL): closed as UNRESOLVED. S1 (L=8) could not be fitted at all
+  — only 2 momentum shells fall inside the matched window at that volume, a
+  design oversight owned here. S2 (L=10, n=256) gave NEAR 1.3216
+  [1.3078,1.3355] vs FAR 1.3050 [1.2933,1.3168]: direction REVERSED relative
+  to H-II and intervals overlapping. Per the frozen rule, H-II is closed
+  unresolved and F6's no-third-variant clause stands: per-configuration
+  lambda-dependence of the scale is closed permanently in this programme.
+- H2-OUTLIER FORK: RESOLVED as fluctuation. S2 replicates (2.2, L=10) at
+  n = 256 (2.7x the original) and lands +0.44 sigma from the curve; the
+  earlier -2.65 sigma point was noise.
+- P10 (localization law): 5/5 again, +15.3 sigma for this run; 17/17 overall,
+  +17.2 sigma combined. Unaffected by everything above.
