@@ -123,3 +123,36 @@ each RUN*_SPEC.md and predate their data. Append-only from here.
   earlier -2.65 sigma point was noise.
 - P10 (localization law): 5/5 again, +15.3 sigma for this run; 17/17 overall,
   +17.2 sigma combined. Unaffected by everything above.
+
+## 2026-08-20 17:12 — AUDIT of the run-17 verdict: the correction was overstated
+- An audit of this record's own 17:02 entry found three defects in it:
+  (1) DOMINANCE. The deep-coherence deviation (+0.212+-0.048, 4.4 sigma) is
+      58% weighted by S4 alone. Excluding S4 the remaining five points give
+      +0.119+-0.075 (1.6 sigma) — no independent corroboration. The 17:02
+      statement that the correlation "PEAKS near f1 ~ 0.65 and DECLINES" is
+      therefore NOT established and is withdrawn as an interpretation.
+  (2) CONFOUND. Every point with f1 > 0.85 in the entire programme is at
+      beta = 2.6, and the 0.60-0.75 band is entirely beta = 2.4. "Declines at
+      deep coherence" is degenerate with "weaker at beta = 2.6". The band
+      analysis cannot separate coherence from coupling in this region.
+  (3) SCOPE. Whole-set chi2 = 63.6/42 (p = 0.017); excluding S4, 44.1/41
+      (p = 0.34). "The curve breaks" overstates it: 41 of 42 blind points are
+      consistent, one is not.
+- What SURVIVES the audit: S4 itself is a genuine blind failure at +4.41 sigma
+  on the largest sample ever taken in that region, and it contradicts the
+  published plateau value. The plateau claim stays WITHDRAWN. The deviation is
+  robust to band-cut choice (4.2-4.4 sigma over cuts 0.80-0.88), so it is not
+  a binning artifact. The >0.85 band is internally consistent (chi2 6.39/5)
+  and shows no significant volume dependence (1.2 sigma), so a hidden
+  finite-size systematic is not indicated.
+- The (2.6, L=10) SKEW FLIP REPLICATES across independent runs: N3 (run 14,
+  n=64) skew -1.341+-0.306; S4 (run 17, n=256) -0.629+-0.153. Both clearly
+  negative, mutually consistent at 2.1 sigma. The sign flip stands; its
+  magnitude does not.
+- RUN21_SPEC defect found in the same audit: the frozen replacement form is
+  DISCONTINUOUS at f1 = 0.50 (jumps -0.100 -> -0.190). Fixed by amendment
+  before launch, together with a design change to break the beta/coherence
+  degeneracy (a non-2.6 ensemble at f1 > 0.85).
+- Both READMEs and the Part-I correction notice are revised to the audited
+  claim strength. This is the second time in this record that the assembly
+  audit has caught its own authors overstating; the first is the row above.

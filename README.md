@@ -18,24 +18,35 @@ gluon field, and whether a genuine mass scale lives there.
 **Found (all numbers regenerated from the raw result files by
 `analysis/regen_tallies.py`; nothing below is quoted from memory):**
 
-1. **The activation curve survived 42 blind predictions at chi2/dof = 1.51 —
-   and then broke, exactly as a falsifiable claim should.** One frozen,
+1. **The activation curve: 42 blind predictions, chi2/dof = 1.51 — and one
+   high-statistics failure that is not yet explained.** One frozen,
    zero-parameter curve (fixed 2026-08-17) predicted the horizon–gluon
    correlation for every new ensemble before measurement, across nine GPU
-   runs, four couplings, volumes L = 8–20. It is accurate where it was
-   calibrated (f1 = 0.60–0.75: 5 points, deviation 0.4 sigma) and **wrong at
-   deep coherence**: its worst point, and the highest-statistics measurement
-   ever taken there (S4, beta=2.6, L=10, n=256), missed by **+4.41 sigma**.
-   Pooling every blind point by coherence band shows the correlation **peaks
-   near f1 ≈ 0.65 at |r| ≈ 0.49 and declines to |r| ≈ 0.35 for f1 > 0.85**
-   (6 points, 4.4 sigma from the frozen curve) — it does not saturate at
-   −0.52 as Part I and this record previously stated. That claim is
-   **corrected here**; the OFF region likewise carries a small non-zero
-   baseline (−0.117, 2.7 sigma) rather than exactly zero. No replacement
-   curve is fitted or claimed: a peaked form must be frozen and blind-tested
-   on new ensembles before it enters the record (`record/RUN21_SPEC.md`).
-   The correction was forced by the curve's own blind test failing — not by
-   refitting.
+   runs, four couplings, volumes L = 8–20. Forty-one of the forty-two points
+   are consistent with it (chi2 = 44.1/41, p = 0.34). The forty-second is not:
+   S4 (beta=2.6, L=10, **n = 256**, the largest sample ever taken there)
+   predicted −0.519, measured −0.289 — **+4.41 sigma**, and it alone moves the
+   whole-set p-value to 0.017.
+
+   **What this does and does not establish, after audit:**
+   - *Established:* the plateau value −0.51…−0.53 stated in Part I and earlier
+     in this record is **contradicted by the single best measurement in that
+     region**. That claim is withdrawn pending resolution; it should not be
+     cited as it stands.
+   - *Not established:* any replacement shape. Pooling the six deep-coherence
+     points gives a +0.212 ± 0.048 deviation (4.4 sigma), but S4 carries 58%
+     of the statistical weight and **the other five points give only
+     +0.119 ± 0.075 (1.6 sigma)** — no independent corroboration yet.
+   - *A confound we cannot yet break:* every measured point with f1 > 0.85 is
+     at **beta = 2.6**. "Declines at deep coherence" is therefore degenerate
+     with "weaker at beta = 2.6", and the 0.60–0.75 band is likewise entirely
+     beta = 2.4. No coherence-vs-coupling separation exists in this region of
+     the data.
+   The deviation is robust to the choice of band cut (4.2–4.4 sigma for cuts
+   0.80–0.88), so it is not a binning artifact. `record/RUN21_SPEC.md`
+   registers the test that can settle it: matched coherence at two different
+   couplings. Until then the honest status is *one unexplained blind failure,
+   plateau claim withdrawn, no replacement curve claimed.*
 
 2. **A new per-configuration law: the wall localizes.** In all 17 ensembles with
    per-configuration data, configurations closer to the horizon carry a less
@@ -99,7 +110,7 @@ pre-registered test, each preserved in place with timestamps:
 
 | we believed | killed by |
 |---|---|
-| the correlation saturates at a plateau of −0.52 (Part I + this record) | P8's own blind failure at deep coherence, run 17 (+4.41 sigma) |
+| the correlation saturates at a plateau of −0.52 (Part I + this record) | withdrawn after P8's own blind failure at n=256, run 17 (+4.41 sigma); no replacement established — see result 1 |
 | the horizon couples specifically to the deepest IR | P2/F3, run 12 (broadband) |
 | a non-spectral coherence observable gates the law | F2 (run 11), F4 (run 12) — two attempts, closed |
 | mass grows toward the horizon (H-I) | F5, run 14 (opposite direction where measurable) |
