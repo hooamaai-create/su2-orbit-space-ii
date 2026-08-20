@@ -93,7 +93,7 @@ G-B fails -> "insufficient glueball signal at n = 512"; the bridge question is
 recorded as unanswered and the cost of answering it (multilevel or n ~ 10^4)
 is stated.
 
-## AMENDMENT 1 — 2026-08-20 14:22, before any run-20 data (pre-flight power analysis)
+## AMENDMENT 1 — 2026-08-20 14:12, before any run-20 data (pre-flight power analysis)
 
 A synthetic-data validation of the correlator/jackknife code (numpy path,
 no lattice data involved) recovered a known input mass correctly
