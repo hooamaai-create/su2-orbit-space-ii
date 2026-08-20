@@ -112,3 +112,30 @@ P22 (coherence vs coupling): at matched coherence, K1 (beta=2.6) and K2
         as the run's primary result.
 P20, P21, P10 stand as registered, but P20 is scored ONLY if P22(a) holds.
 F20/F21 unchanged.
+
+## AMENDMENT 2 — 2026-08-20 17:44, before any run-21 data (parameters frozen properly)
+
+Amendment 1's hand-chosen parameters were checked against the pooled old data
+and found not to reproduce it (they gave r = -0.148 at f1 = 0.85 where the
+pooled measurement is -0.349). A test with a form guaranteed to fail carries
+no information. The parameters are therefore fixed ONCE by a weighted fit to
+all 42 pooled OLD blind points (Fisher-z, weights n-4) and FROZEN here:
+
+    r(f) = -[ b + (A - b) * g(f) ] * h(f)
+    g(f) = 1/(1+exp(-(f-0.52)/0.045))      (unchanged activation)
+    h(f) = 1/(1+exp((f-f_c)/w))
+    A = 0.7727,  b = 0.0700,  f_c = 0.8536,  w = 0.2517
+    fit quality on the old points: chi2 = 39.0/38 (the old saturating curve
+    gives 67.1/42 on the same points; delta-chi2 = 28.1 in the peaked form's
+    favour, on the data it was fitted to — which is NOT evidence, only the
+    reason the form is worth testing).
+
+Frozen predictions at the run-21 points (computed now, before data):
+    K3 f1 ~ 0.70 -> r = -0.492   (old curve: -0.511)  [near-degenerate control]
+    K1/K2 f1 ~ 0.87 -> r = -0.374 (old curve: -0.520)  [discriminating]
+    K4 f1 ~ 0.95 -> r = -0.313   (old curve: -0.520)  [discriminating]
+Scoring uses the MEASURED f1 of each ensemble in both forms, so the comparison
+is not sensitive to grid extrapolation error. P20's delta-chi2 > 9 threshold
+and all other clauses stand unchanged. Note for the record: the peaked form is
+now a 4-parameter description fitted to old data; passing P20 means only
+"survives new blind points", never "measured".
