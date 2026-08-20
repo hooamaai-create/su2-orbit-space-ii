@@ -124,7 +124,7 @@ each RUN*_SPEC.md and predate their data. Append-only from here.
 - P10 (localization law): 5/5 again, +15.3 sigma for this run; 17/17 overall,
   +17.2 sigma combined. Unaffected by everything above.
 
-## 2026-08-20 17:12 — AUDIT of the run-17 verdict: the correction was overstated
+## 2026-08-20 17:38 — AUDIT of the run-17 verdict: the correction was overstated
 - An audit of this record's own 17:02 entry found three defects in it:
   (1) DOMINANCE. The deep-coherence deviation (+0.212+-0.048, 4.4 sigma) is
       58% weighted by S4 alone. Excluding S4 the remaining five points give

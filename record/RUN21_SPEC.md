@@ -76,7 +76,7 @@ discrepancy that motivated the run. Coherence values at 2.5/2.8 are grid
 extrapolations; measured f1 is used in scoring, predicted f1 only for the
 blinding.
 
-## AMENDMENT 1 — 2026-08-20 17:41, before any run-21 data (audit of this spec)
+## AMENDMENT 1 — 2026-08-20 17:39, before any run-21 data (audit of this spec)
 
 Two defects found by the audit of the run-17 verdict, fixed before launch:
 
@@ -113,7 +113,7 @@ P22 (coherence vs coupling): at matched coherence, K1 (beta=2.6) and K2
 P20, P21, P10 stand as registered, but P20 is scored ONLY if P22(a) holds.
 F20/F21 unchanged.
 
-## AMENDMENT 2 — 2026-08-20 17:44, before any run-21 data (parameters frozen properly)
+## AMENDMENT 2 — 2026-08-20 17:40, before any run-21 data (parameters frozen properly)
 
 Amendment 1's hand-chosen parameters were checked against the pooled old data
 and found not to reproduce it (they gave r = -0.148 at f1 = 0.85 where the
