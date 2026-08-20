@@ -92,3 +92,27 @@ programme's reach, reported as prominently as a positive would have been.
 G-B fails -> "insufficient glueball signal at n = 512"; the bridge question is
 recorded as unanswered and the cost of answering it (multilevel or n ~ 10^4)
 is stated.
+
+## AMENDMENT 1 — 2026-08-20 14:22, before any run-20 data (pre-flight power analysis)
+
+A synthetic-data validation of the correlator/jackknife code (numpy path,
+no lattice data involved) recovered a known input mass correctly
+(m_in = 0.90 -> m_out = 1.07 +- 1.03) and returned 0.01 on a pure-noise null,
+confirming the estimator. It also showed the expected weakness: at n = 512
+with unit-variance per-timeslice noise the C(1) significance was 1.9 sigma —
+below gate G-B. The real operator averages over L^3 = 1000 spatial sites and
+so should do better, but the margin is not comfortable.
+
+Design changes (no data seen):
+- The run is split into two parts, one ensemble each (B1 = 2.4, B2 = 2.2),
+  so that each ensemble gets the full n = 512 within a single Kaggle session
+  rather than competing for it.
+- All three smearing levels are stored per configuration (already specified),
+  and the analysis will report C(1) significance for each; if N_smear = 8
+  fails G-B but another level passes, that is reported as a gate failure for
+  the registered analysis, with the other level shown as information only.
+  The registered estimate remains N_smear = 8.
+- If G-B fails at both points, the registered outcome ("insufficient glueball
+  signal at n = 512") stands and the follow-up cost is quoted: multilevel
+  updating or n ~ 10^4, neither of which fits free-GPU sessions.
+No prediction, threshold, or verdict language is changed by this amendment.
