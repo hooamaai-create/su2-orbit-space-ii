@@ -116,3 +116,27 @@ Design changes (no data seen):
   signal at n = 512") stands and the follow-up cost is quoted: multilevel
   updating or n ~ 10^4, neither of which fits free-GPU sessions.
 No prediction, threshold, or verdict language is changed by this amendment.
+
+## AMENDMENT 2 — 2026-08-20 14:25, before any run-20 data (design audit)
+
+A pre-launch audit of the registered analysis found four defects, fixed now:
+1. INSTRUMENT BUG (analysis-side): the jackknife did not recompute the vacuum
+   subtraction <O>^2 per deletion, silently excluding the dominant error
+   source of a scalar-glueball correlator. The corrected estimator jackknifes
+   the FULL pipeline (mean, subtraction, correlator, mass) per deletion. The
+   kernel is unaffected (it stores raw O(t) only; verified it calls no
+   analysis function).
+2. ESTIMATOR: m_eff(1) requires C(2) ~ e^-4 of C(0) at beta=2.2 — unmeasurable
+   at these statistics. The REGISTERED estimate moves to m_eff(0) =
+   ln C(0)/C(1) (excited-state contamination acknowledged; the N_smear = 8
+   level exists to suppress it), with m_eff(1) reported as secondary where
+   measurable. Gate G-B (C(1) significance) now gates exactly the quantity
+   the registered estimate uses.
+3. BUDGET: B2 (beta=2.2) reduced n = 512 -> 384 to fit a single session with
+   margin (eigensolves at 2.2 are the slowest in the programme; the engine
+   writes output only at completion).
+4. ANALYSIS REGISTRATION for P18/P19: vacuum subtraction is performed PER
+   HALF in every split; and a P18(a) positive is registered as "predictive
+   purchase" only — amplitude and excited-state-contamination mechanisms are
+   explicitly listed as candidate explanations that this run cannot separate.
+No verdict language changes. G-A/G-B thresholds unchanged.
