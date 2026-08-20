@@ -75,3 +75,40 @@ n = 128-192 gives sigma(z) ~ 0.09-0.07, adequate to resolve the ~0.2 z-unit
 discrepancy that motivated the run. Coherence values at 2.5/2.8 are grid
 extrapolations; measured f1 is used in scoring, predicted f1 only for the
 blinding.
+
+## AMENDMENT 1 — 2026-08-20 17:41, before any run-21 data (audit of this spec)
+
+Two defects found by the audit of the run-17 verdict, fixed before launch:
+
+1. DISCONTINUITY. The frozen form as registered jumps at f1 = 0.50 (-0.100 to
+   -0.190). Replaced by a continuous form with the SAME parameters, the
+   baseline now additive and smoothly switched:
+       r(f) = -[ b + (A - b) * g(f) ] * h(f)
+       A = 0.49,  b = 0.10,
+       g(f) = 1/(1+exp(-(f-0.52)/0.045)),  h(f) = 1/(1+exp((f-0.80)/0.060))
+   No parameter values change; only the discontinuity is removed. As before,
+   nothing is fitted to run-21 data.
+
+2. THE CONFOUND IS NOW THE PRIMARY TARGET. Every point in the programme with
+   f1 > 0.85 is at beta = 2.6, so the run-17 deviation cannot distinguish
+   "declines with coherence" from "weaker at beta = 2.6". The design is
+   changed to break exactly that degeneracy:
+       K1 (2.6, L=12, n=192)  f1 ~ 0.87   deep, beta = 2.6, new volume
+       K2 (2.5, L= 8, n=192)  f1 ~ 0.87   MATCHED coherence, DIFFERENT coupling
+       K3 (2.4, L= 8, n=192)  f1 ~ 0.70   control (both curves agree here)
+       K4 (2.8, L=10, n=128)  f1 ~ 0.95   third coupling, deepest coherence
+   (K2's coherence is extrapolated from the measured (2.5, L=10) value 0.837;
+   if its measured f1 falls outside 0.84-0.91 the matched-pair test is void
+   and reported as such.)
+
+NEW PRIMARY PREDICTION, replacing P20 as the run's headline:
+P22 (coherence vs coupling): at matched coherence, K1 (beta=2.6) and K2
+    (beta=2.5) agree in r within 2 sigma.
+    (a) AGREE -> coherence is the controlling variable in the deep region;
+        the P20 curve-shape question is then meaningful and is scored.
+    (b) DISAGREE by > 3 sigma -> coupling, not coherence, controls r at deep
+        coherence; the single-variable f1 parameterization fails there, which
+        is a larger correction than the plateau value itself and is reported
+        as the run's primary result.
+P20, P21, P10 stand as registered, but P20 is scored ONLY if P22(a) holds.
+F20/F21 unchanged.
