@@ -141,7 +141,7 @@ A pre-launch audit of the registered analysis found four defects, fixed now:
    explicitly listed as candidate explanations that this run cannot separate.
 No verdict language changes. G-A/G-B thresholds unchanged.
 
-## AMENDMENT 3 — 2026-08-20 14:38, before any run-20 data
+## AMENDMENT 3 — 2026-08-20 14:48, before any run-20 data
 ## (retraction of the amendment-1 power estimate; design fix)
 
 RETRACTION. The synthetic power model used in Amendment 1 was structurally
