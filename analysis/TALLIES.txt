@@ -1,0 +1,86 @@
+======================================================================
+1. ACTIVATION CURVE — all blind points (runs 11-19)
+======================================================================
+  r11:T1                 pred -0.300  meas -0.201  dev +0.63 sigma  (n=40)
+  r11:T2                 pred -0.210  meas -0.207  dev +0.01 sigma  (n=32)
+  r11:T3                 pred -0.508  meas -0.368  dev +1.04 sigma  (n=40)
+  r11:T4                 pred -0.471  meas -0.521  dev -0.39 sigma  (n=40)
+  r11:T5                 pred -0.368  meas -0.650  dev -1.74 sigma  (n=24)
+  r11:T6                 pred -0.116  meas -0.090  dev +0.09 sigma  (n=16)
+  r11:O1                 pred -0.024  meas -0.221  dev -1.07 sigma  (n=32)
+  r11:O2                 pred -0.004  meas -0.134  dev -0.45 sigma  (n=16)
+  r11:M1                 pred -0.515  meas -0.459  dev +0.39 sigma  (n=32)
+  r11:M2                 pred -0.513  meas -0.057  dev +2.28 sigma  (n=24)
+  r11:S1                 pred -0.520  meas -0.603  dev -0.73 sigma  (n=40)
+  r11:S2                 pred -0.520  meas -0.490  dev +0.18 sigma  (n=24)
+  results\results12:A1   pred -0.024  meas -0.152  dev -0.86 sigma  (n=48)
+  results\results12:A2   pred -0.116  meas -0.277  dev -0.75 sigma  (n=24)
+  results\results12:B4   pred -0.508  meas -0.509  dev -0.01 sigma  (n=64)
+  results\results12:B1   pred -0.471  meas -0.404  dev +0.65 sigma  (n=64)
+  results\results12:B2   pred -0.519  meas -0.336  dev +1.50 sigma  (n=48)
+  results\results12:B3   pred -0.520  meas -0.231  dev +1.52 sigma  (n=24)
+  results\results13A:X1  pred -0.013  meas -0.100  dev -0.30 sigma  (n=16)
+  results\results13A:X2  pred -0.034  meas +0.531  dev +2.16 sigma  (n=16)
+  results\results13A:C1  pred -0.024  meas -0.008  dev +0.08 sigma  (n=32)
+  results\results13A:C2  pred -0.210  meas -0.078  dev +0.72 sigma  (n=32)
+  results\results13B:X3  pred -0.041  meas +0.066  dev +0.30 sigma  (n=12)
+  results\results13B:C3  pred -0.368  meas -0.188  dev +0.88 sigma  (n=24)
+  results\results13B:C4  pred -0.116  meas -0.193  dev -0.27 sigma  (n=16)
+  results\results14:N1   pred -0.508  meas -0.539  dev -0.42 sigma  (n=96)
+  results\results14:N2   pred -0.471  meas -0.493  dev -0.24 sigma  (n=80)
+  results\results14:N3   pred -0.519  meas -0.413  dev +1.06 sigma  (n=64)
+  results\results14:D1   pred -0.024  meas -0.171  dev -1.15 sigma  (n=64)
+  results\results15:E1   pred -0.024  meas -0.183  dev -1.79 sigma  (n=128)
+  results\results15:E2   pred -0.024  meas -0.157  dev -1.04 sigma  (n=64)
+  results\results15:E3   pred -0.023  meas -0.109  dev -0.57 sigma  (n=48)
+  results\results16:G1   pred -0.041  meas -0.022  dev +0.07 sigma  (n=16)
+  results\results16:G2   pred -0.010  meas +0.254  dev +0.76 sigma  (n=12)
+  results\results18:H1   pred -0.024  meas +0.115  dev +1.08 sigma  (n=64)
+  results\results18:H2   pred -0.024  meas -0.291  dev -2.65 sigma  (n=96)
+  results\results19:J1   pred -0.520  meas -0.687  dev -0.93 sigma  (n=16)
+
+  TOTAL: 37 blind points   chi2 = 41.39   chi2/dof = 1.12
+  worst point: results\results18:H2 at -2.65 sigma
+
+======================================================================
+2. LOCALIZATION LAW — r(lambda, f1), partial (plaquette removed)
+======================================================================
+  results\results14:N1   (b=2.4, L= 8, n= 96)  r = +0.400  (+4.1 sigma)
+  results\results14:N2   (b=2.4, L=10, n= 80)  r = +0.512  (+4.9 sigma)
+  results\results14:N3   (b=2.6, L=10, n= 64)  r = +0.189  (+1.5 sigma)
+  results\results14:D1   (b=2.2, L=10, n= 64)  r = +0.361  (+2.9 sigma)
+  results\results15:E1   (b=2.2, L=10, n=128)  r = +0.404  (+4.8 sigma)
+  results\results15:E2   (b=2.2, L=12, n= 64)  r = +0.297  (+2.4 sigma)
+  results\results15:E3   (b=2.3, L=14, n= 48)  r = +0.242  (+1.6 sigma)
+  results\results16:G1   (b=2.4, L=20, n= 16)  r = +0.673  (+2.8 sigma)
+  results\results16:G2   (b=2.3, L=18, n= 12)  r = +0.794  (+3.1 sigma)
+  results\results18:H1   (b=2.2, L=12, n= 64)  r = +0.276  (+2.2 sigma)
+  results\results18:H2   (b=2.2, L=10, n= 96)  r = +0.519  (+5.5 sigma)
+  results\results19:J1   (b=2.6, L=20, n= 16)  r = +0.306  (+1.1 sigma)
+
+  sign-consistency: 12/12 positive   combined (Stouffer) = +10.6 sigma
+
+======================================================================
+3. LAMBDA_RGZ LADDER — 8-shell fits (free at G1; constrained elsewhere)
+======================================================================
+  REFERENCE (free fit) G1 (b=2.4, L=20): chi2=3.35/4  lambda = 0.998 sqs   M1p=2.99 M2p=0.493
+  DISCLOSURE: all points below transfer M1,M2 from this single free fit;
+  the ladder is therefore consistency under a shared-parameter assumption,
+  not four independent measurements.
+  J1 (b=2.6, L=20, a=0.336): lambda = 0.891 [0.866, 0.914]  (chi2=1.74, 4 shells)
+  G2 (b=2.3, L=18, a=0.4975): lambda = 1.192 [1.179, 1.204]  (chi2=4.40, 8 shells)
+  H1 (b=2.2, L=12, a=0.561): lambda = 1.319 [1.309, 1.330]  (chi2=14.65, 5 shells)
+  H2 (b=2.2, L=10, a=0.561): lambda = 1.330 [1.316, 1.344]  (chi2=2.26, 3 shells)
+  free fit at J1 (disclosure): lambda = 0.593, chi2=1.00/4, M1^2=18.4 (degenerate) — does NOT independently pin 1.0
+
+======================================================================
+4. REFUTED IN THIS RECORD (runs 12-19)
+======================================================================
+  - H-I: mass grows toward the horizon (F5, run 14)
+  - onset-at-death: mass appears when coherence dies (run 16/19, P17)
+  - energy-floor: horizon is the lowest-energy place (P11, run 15)
+  - E ~ 1/m per configuration (exploratory test, 2026-08-19)
+  - pure-GZ gamma + its a^2.4 'artifact law' (8-shell refit, run 16)
+  - IR-specificity of the horizon coupling (P2/F3, run 12)
+  - f3 and f3n non-spectral coherence gates (F2 run 11 / F4 run 12)
+  (Part I's 13 refuted conjectures are separate; see companion record.)

@@ -1,0 +1,36 @@
+{
+  "title": "The boundary half of Singer's question: horizon dynamics, blind-tested per-configuration laws, and the method-dependence of the refined-Gribov scale in SU(2) lattice ensembles (Part II)",
+  "description": "Part II of an SU(2) orbit-space programme (Part I: doi:10.5281/zenodo.21993866). All quantities are Landau-gauge and gauge-dependent. Across eight GPU runs we measure the infrared gluon propagator on up to eight momentum shells at four lattice spacings, with per-configuration arrays. Established: (1) one frozen zero-parameter activation curve predicted the horizon-gluon correlation blind for 37 ensembles (chi2/dof = 1.12, worst point -2.65 sigma); (2) a per-configuration localization law - configurations nearer the Gribov horizon carry a less coherent lowest Faddeev-Popov mode - holds 12-of-12 in sign, +10.6 sigma combined. A refined-Gribov-Zwanziger scale consistent in magnitude with published RGZ fits (~0.9-1.0 sqrt(sigma)) is present at every coupling and volume once the box resolves it (a visibility criterion retro-explains all twenty ensembles and passed one blind test in a fully coherent vacuum); whether the scale is spacing-independent is method-dependent and explicitly unresolved (free fits: 0.998/0.975 at two spacings; uniform constrained ladder rises ~a^0.8). Seven intermediate conclusions were refuted by pre-registered tests and are preserved in place, including one caught by this record's own number-regeneration audit. Not shown: the Yang-Mills mass gap, any gauge-invariant mass, any continuum limit. Research by Nitin Pandey in close collaboration with Claude (Anthropic).",
+  "creators": [
+    {
+      "name": "Pandey, Nitin"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Claude (Anthropic AI system)",
+      "type": "Other"
+    }
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.21993866",
+      "relation": "continues",
+      "scheme": "doi"
+    }
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "access_right": "open",
+  "keywords": [
+    "lattice gauge theory",
+    "SU(2) Yang-Mills",
+    "Gribov horizon",
+    "refined Gribov-Zwanziger",
+    "gluon propagator",
+    "Faddeev-Popov operator",
+    "pre-registration",
+    "blind analysis",
+    "reproducible research"
+  ]
+}

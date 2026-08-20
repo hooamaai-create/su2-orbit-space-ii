@@ -1,0 +1,76 @@
+# Part-II ledger (runs 12–19)
+
+Compiled 2026-08-20 12:43 from the analysis logs of 2026-08-18/19/20. Run
+timestamps are the Kaggle execution dates; spec registration times are inside
+each RUN*_SPEC.md and predate their data. Append-only from here.
+
+## 2026-08-18 — Run 12 (mass mechanisms; spec 2026-08-18, Q4 addendum 21:09 mid-flight)
+- P1 (blind curve) PASS: 6 points, chi2/dof ~ 1.05.
+- P2/F3 FIRED: horizon–gluon correlation is broadband in k^2=1..4, not IR-specific.
+- P3 mixed: scale visible only in the dead-vacuum ensemble (later reinterpreted, run 16).
+- P4/F4 FIRED: Haar-normalized non-spectral gate failed; per pre-registered
+  language the coherence gate is permanently spectral in this programme.
+- Q4/P5 unscoreable: engine predates the hypothesis; no per-config storage.
+  Instrument error, owned; fixed in run 14.
+
+## 2026-08-19 — Run 13 (onset surface)
+- P1 PASS at all three couplings (suppression appears beyond ell* at 2.2/2.3/2.4).
+- P2 marginal (threshold refined toward f1 ~ 0.43-0.45). P3/F2 FIRED: extracted
+  scales disagreed across beta in physical units (resolved by run 16: wrong form).
+- P4 (blind curve) PASS: 7 points, one +2.05-sigma outlier (X2, n=16, watch item).
+
+## 2026-08-19 — Run 14 (H-I test; per-config instrument debut)
+- F5 FIRED: H-I (mass grows toward horizon) refuted — in the one scaled
+  ensemble the FAR half carried the larger scale (0.499 vs 0.451, separated).
+- Exploratory mining (labeled): Z-band beats D(p_min) as the coupled variable;
+  r(lambda, f1) > 0 in 4/4; two configs lambda < 0 (later shown tolerance artifacts).
+
+## 2026-08-19 — Run 15 (H-II + P9/P10/P11; v1 crashed on ASQS KeyError after
+##   all 240 configs computed — bug #15, fixed, deterministic re-run)
+- P6 not met (1/3 separated), F6 not fired: H-II open at "direction consistent".
+- P8 PASS (3 points). P9: soft-gate branch (b) in all three — Z retains horizon
+  coupling in the dead phase. P10 PASS: localization law confirmed blind.
+- P11 FAILED: r(lambda, plaq) positive in all three — the horizon is NOT the
+  energy floor; run-14's negative sign did not replicate.
+
+## 2026-08-19 — Quant sweep (20 shell-resolved ensembles)
+- gamma_lat = 1.89 a^2.4 (R^2 = 0.97) flagged: mass scale tracks spacing.
+- Energy: plaquette flat to 0.1% across the entire transition.
+
+## 2026-08-19 — Run 16 (physics-or-cutoff fork; 8-shell instrument debut)
+- Formal outcome Q3 (validity gate: f1 = 0.445 > 0.40; the 19-point f1
+  extrapolation missed by 3+ sigma — coherence decays slower at fine spacing).
+- Substantive: gamma_lat constant per beta across ALL volumes; onset-at-death
+  reinterpreted as a detection threshold; artifact law's prediction hit at 0.8%.
+- 8-shell refit: pure-GZ REJECTED at G1 (chi2 64/6 vs RGZ 3.4/4); the a^2.4
+  law exposed as a parametrization artifact; lambda_RGZ ~ 1.0 sqrt(sigma) at
+  two spacings (free fits).
+- P8 PASS (2 pts). P10 PASS (2 pts, strongest values to date).
+
+## 2026-08-19 — Run 18 (third spacing; window-mismatch lesson)
+- P14/P15 gates FAILED: free RGZ degenerates at coarse spacing with an
+  8-shell window reaching into the UV. P13 void. Matched-window constrained
+  fit restores volume consistency (1.319/1.330 at the two volumes).
+- P8: 31st point fine; 32nd = worst curve point ever (-2.65 sigma; watch).
+  P10 PASS (2 pts).
+
+## 2026-08-20 — Run 19 (fourth spacing)
+- P17: scale PRESENT in a fully coherent vacuum (delta-chi2 = 143) —
+  onset-at-death stays dead; detection-threshold model passes its blind test.
+- P16 scored per frozen rule: constrained lambda(2.6) = 0.891 [0.866, 0.914],
+  inside the registered physical band. Free fit degenerate (0.59 [0.33,0.93]).
+- P8 PASS (37th point). P10 PASS (12/12).
+
+## 2026-08-20 12:43 — Assembly audit (this repository)
+- Number regeneration (analysis/regen_tallies.py) caught the authors' own
+  summary mixing fit methods: under a UNIFORM constrained method the lambda
+  ladder rises with spacing (0.891 / 0.998 / 1.192 / 1.319-1.330 at
+  a = 0.336 / 0.434 / 0.498 / 0.561, ~ a^0.8), while free fits at the two
+  stable points agree at 0.998 / 0.975. Continuum status of lambda:
+  METHOD-DEPENDENT, UNRESOLVED. The README states both with equal prominence.
+- Final tallies: activation curve 37 blind points, chi2/dof = 1.12, worst
+  -2.65 sigma. Localization law 12/12 in sign, +10.6 sigma combined.
+- Literature scoping added: lambda replicates the scale class of published
+  RGZ fits (Cucchieri-Dudal-Mendes-Vandersickel; Dudal-Oliveira-Vandersickel);
+  novelty claims confined to the blind per-config laws and the visibility
+  criterion.
