@@ -1,7 +1,7 @@
 # Run 21 — pre-registered specification: THE PEAKED CURVE
 # Does the horizon-gluon correlation really turn over at deep coherence?
 
-*Registered 2026-08-20 17:06, before any run-21 data. The replacement curve
+*Registered 2026-08-20 17:04, before any run-21 data. The replacement curve
 below is FROZEN here and must not be refitted after data.*
 
 ## Provenance
