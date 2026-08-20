@@ -140,3 +140,34 @@ A pre-launch audit of the registered analysis found four defects, fixed now:
    purchase" only — amplitude and excited-state-contamination mechanisms are
    explicitly listed as candidate explanations that this run cannot separate.
 No verdict language changes. G-A/G-B thresholds unchanged.
+
+## AMENDMENT 3 — 2026-08-20 14:38, before any run-20 data
+## (retraction of the amendment-1 power estimate; design fix)
+
+RETRACTION. The synthetic power model used in Amendment 1 was structurally
+invalid: it gave the NOISE the same exponential decay as the signal, whereas a
+scalar-glueball correlator's noise is vacuum-dominated and does NOT decay with
+t. The model's output is therefore insensitive to the noise amplitude (13.7,
+12.2, 13.2 sigma for amplitudes 1.0, 0.3, 0.05) and its numbers carry no
+information. Both the pessimistic figure quoted in Amendment 1 (1.9 sigma) and
+a later optimistic figure derived from the same model are WITHDRAWN. The
+correctness validation of the estimator (mass recovery, null test) is
+unaffected and stands.
+
+HONEST POWER ESTIMATE (standard glueball scaling, sigma[C(t)] ~ C(0)/sqrt(N)):
+    C(1)/err  ~  sqrt(N) * exp(-m_lat),   m_lat = 3.7 * a*sqrt(sigma)
+    B1 (beta=2.4, a=0.434, n=512): ~4.5 sigma
+    B2 (beta=2.2, a=0.561, n=384): ~2.5 sigma  -> would FAIL gate G-B as designed.
+
+DESIGN FIX (no data seen). The gate does not require the eigensolve; only the
+bridge split does. Each ensemble therefore adds ONE glueball-only batch of 512
+configurations (thermalization + smearing only, no gauge fixing, no
+eigensolve), pooled with the main batch for G-A/G-B and the ensemble mass:
+    B1 gate sample 1024 -> ~6.4 sigma;  B2 gate sample 896 -> ~3.8 sigma.
+REGISTERED CONSTRAINT: the pooled sample is used for the gates and the
+ensemble mass ONLY. P18/P19 (the bridge split) use exclusively the eigensolved
+main batch (n = 512 / 384, halves of 256 / 192), and the split test's own
+power is correspondingly weaker — with halves at ~4.5 and ~2.7 sigma on C(1),
+a null result for P18 at beta=2.2 is expected on statistics alone and may not
+be interpreted as evidence for P18(b) at that point.
+No thresholds, predictions, or verdict language are changed.
