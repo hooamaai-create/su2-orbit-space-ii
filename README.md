@@ -18,18 +18,43 @@ gluon field, and whether a genuine mass scale lives there.
 **Found (all numbers regenerated from the raw result files by
 `analysis/regen_tallies.py`; nothing below is quoted from memory):**
 
-1. **The activation curve survived 37 blind predictions at chi2/dof = 1.12.**
-   One frozen, zero-parameter curve (fixed 2026-08-17) predicted the
-   horizon–gluon correlation for every new ensemble before measurement, across
-   eight GPU runs, four couplings, volumes L = 8–20. Worst point: −2.65 sigma
-   (one such point in 37 is unremarkable). To our knowledge this kind of
-   pre-registered, per-configuration blind validation has no published analogue.
+1. **The activation curve survived 42 blind predictions at chi2/dof = 1.51 —
+   and then broke, exactly as a falsifiable claim should.** One frozen,
+   zero-parameter curve (fixed 2026-08-17) predicted the horizon–gluon
+   correlation for every new ensemble before measurement, across nine GPU
+   runs, four couplings, volumes L = 8–20. It is accurate where it was
+   calibrated (f1 = 0.60–0.75: 5 points, deviation 0.4 sigma) and **wrong at
+   deep coherence**: its worst point, and the highest-statistics measurement
+   ever taken there (S4, beta=2.6, L=10, n=256), missed by **+4.41 sigma**.
+   Pooling every blind point by coherence band shows the correlation **peaks
+   near f1 ≈ 0.65 at |r| ≈ 0.49 and declines to |r| ≈ 0.35 for f1 > 0.85**
+   (6 points, 4.4 sigma from the frozen curve) — it does not saturate at
+   −0.52 as Part I and this record previously stated. That claim is
+   **corrected here**; the OFF region likewise carries a small non-zero
+   baseline (−0.117, 2.7 sigma) rather than exactly zero. No replacement
+   curve is fitted or claimed: a peaked form must be frozen and blind-tested
+   on new ensembles before it enters the record (`record/RUN21_SPEC.md`).
+   The correction was forced by the curve's own blind test failing — not by
+   refitting.
 
-2. **A new per-configuration law: the wall localizes.** In all 12 ensembles with
+2. **A new per-configuration law: the wall localizes.** In all 17 ensembles with
    per-configuration data, configurations closer to the horizon carry a less
-   coherent lowest Faddeev–Popov mode: r(lambda, f1) > 0, 12-of-12 in sign,
-   combined significance +10.6 sigma (Stouffer). Blind-registered before its
-   confirming runs.
+   coherent lowest Faddeev–Popov mode: r(lambda, f1) > 0, 17-of-17 in sign,
+   combined significance +17.2 sigma (Stouffer). Blind-registered before its
+   confirming runs, and untouched by the curve correction above.
+
+   **The first-copy ambiguity is now quantified** (run 17): across 6
+   independent random-start gauge fixings of the same configurations, the
+   scatter in lambda_min is 0.249 of the ensemble scatter — small enough that
+   distribution-shape claims survive it. To our knowledge this control had
+   not previously been reported for this class of measurement.
+
+   **The horizon edge is not one universality class.** The standardized
+   lambda_min distribution has positive skew (+0.37 to +0.63) across four
+   ensembles spanning f1 = 0.38–0.70, then **flips sign to −0.63(12)** at
+   f1 = 0.896 — co-located with the region where the activation curve fails.
+   Skew-normal wins on AIC at the coherent points; Tracy–Widom and skew-normal
+   are indistinguishable at the dead points.
 
 3. **The infrared gluon propagator carries a refined-Gribov-Zwanziger scale —
    consistent in magnitude with published RGZ analyses — but whether it is
@@ -59,8 +84,10 @@ gluon field, and whether a genuine mass scale lives there.
    infrared-brighter and more localized (both blind-established) but not
    heavier; the per-configuration mass-vs-distance hypothesis in its direct
    form (H-I) was refuted by its own pre-registered test, and its inverse
-   (H-II) remains open at "direction consistent (4 ensembles, one a replica),
-   magnitude unresolved" — further variants are closed by rule (F6).
+   (H-II) is now **closed as unresolved**: its final test (run 17, n = 256)
+   reversed the expected direction with overlapping intervals, and F6's
+   no-third-variant rule stands — per-configuration lambda-dependence of the
+   scale is closed permanently in this programme.
    Energy density is unchanged across all of this at our 0.1% sensitivity —
    consistent with (not proof of) an entropic, boundary-of-configuration-space
    interpretation.
@@ -72,6 +99,7 @@ pre-registered test, each preserved in place with timestamps:
 
 | we believed | killed by |
 |---|---|
+| the correlation saturates at a plateau of −0.52 (Part I + this record) | P8's own blind failure at deep coherence, run 17 (+4.41 sigma) |
 | the horizon couples specifically to the deepest IR | P2/F3, run 12 (broadband) |
 | a non-spectral coherence observable gates the law | F2 (run 11), F4 (run 12) — two attempts, closed |
 | mass grows toward the horizon (H-I) | F5, run 14 (opposite direction where measurable) |
@@ -102,7 +130,7 @@ blind-tested per-configuration laws around it.
 
 | dir | contents |
 |---|---|
-| `record/` | pre-registered specs RUN12–RUN19 (including RUN17, registered but not yet run, and its self-grilled v1-to-v2 history), the Part-II ledger |
+| `record/` | pre-registered specs RUN12–RUN21 (including each spec's self-grilled amendment history and, for RUN20/21, registrations made before the corresponding data existed), the Part-II ledger |
 | `gpu/` | the eight run engines + Kaggle notebooks (free-GPU reproducible; guard cell handles P100/T4) |
 | `results/` | raw JSON outputs, per-configuration arrays included from run 14 onward |
 | `analysis/` | scoring scripts, the quant sweep, the matched-window fitter, and `regen_tallies.py` — run it to regenerate every number in this README |

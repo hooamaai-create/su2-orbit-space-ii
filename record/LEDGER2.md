@@ -75,7 +75,7 @@ each RUN*_SPEC.md and predate their data. Append-only from here.
   novelty claims confined to the blind per-config laws and the visibility
   criterion.
 
-## 2026-08-20 17:05 — Run 17 (v3) verdict: the curve BREAKS at deep coherence
+## 2026-08-20 17:02 — Run 17 (v3) verdict: the curve BREAKS at deep coherence
 - Copy-control gate (DR-2) PASSES: mean copy-scatter of lambda_min across 6
   independent gauge-fixing restarts = 0.00475 vs ensemble scatter 0.01909,
   ratio 0.249 (gate: fail above 0.50). First quantification of first-copy
