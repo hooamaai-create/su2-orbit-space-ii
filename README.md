@@ -1,5 +1,7 @@
 # The boundary half of Singer's question — an SU(2) orbit-space record, Part II
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22025317.svg)](https://doi.org/10.5281/zenodo.22025317)
+
 **Part I** (curvature, the coherence gate, the activation curve):
 [github.com/hooamaai-create/su2-orbit-space](https://github.com/hooamaai-create/su2-orbit-space) ·
 [doi:10.5281/zenodo.21993866](https://doi.org/10.5281/zenodo.21993866)
