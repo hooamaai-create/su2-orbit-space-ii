@@ -1,0 +1,69 @@
+======================================================================
+0. INSTRUMENT — calibration of the dimension estimator
+======================================================================
+  known d = 1   raw MLE =  0.903
+  known d = 2   raw MLE =  1.766
+  known d = 3   raw MLE =  2.672
+  known d = 4   raw MLE =  3.544
+  known d = 5   raw MLE =  4.512
+  known d = 6   raw MLE =  5.382
+  known d = 7   raw MLE =  6.251
+  known d = 8   raw MLE =  7.137
+  linear fit  raw = 0.8948 * known -0.0059   max residual 0.044
+  F-D3 (residual > 0.10 voids every quoted dimension): not fired
+
+======================================================================
+1. THE DEFAULT FLOW
+======================================================================
+  d: 6.121 -> 3.066 in 179 steps, halt = rate_vanished
+  exponential-approach fit: d_inf = 3.011, tau = 57 steps, rms = 0.0158
+  rate at start 0.9966 -> at halt 0.00062 (1619x suppression)
+    step   44  d =  3.417  Gamma = 0.02690  U = 0.361  G = 0.074
+    step   89  d =  3.153  Gamma = 0.00643  U = 0.254  G = 0.025
+    step  133  d =  3.114  Gamma = 0.00468  U = 0.251  G = 0.019
+
+======================================================================
+2. PRE-REGISTERED AUDIT (DIM-01) — does the fixed point follow anything?
+======================================================================
+  D1 self-arrest      5/5 seeds halt on rate_vanished   -> PASS
+  D2 seed stability   d_halt 3.025 .. 3.066  spread 0.041 (limit 0.15)  -> PASS   [across 5 seeds]
+  D3 soft parameter   d_halt 3.025 .. 3.063  spread 0.038 (limit 0.15)  -> PASS   [across w = 0.25..1.00]
+  D4 step size        d_halt 3.038 .. 3.065  spread 0.027 (limit 0.15)  -> PASS   [across eta0 = 0.3..1.2]
+  D6 upper threshold  d_halt 3.029 .. 3.079  spread 0.049 (limit 0.2)  -> PASS   [across d_collapse = 3.5..5.0]
+  D5 basin (from above) starts 4.6, 6.0, 8.3, 9.9  ->  d_halt 3.035 .. 3.111  spread 0.077  -> PASS
+      none stalled at the upper threshold: confirmed
+  D5 from below       start 2.623 -> halt 2.616 after 1 step(s); one-sided (no restoring term exists in the model)
+  D7 excluded         floor 1.5: still falling at 2.573 after 2500 steps (max_steps) — not converged, excluded from the regression
+  D7 THE CONTROL      halting dimension vs the floor handed in:
+      floor placed at 2.0  ->  halted at 2.103
+      floor placed at 2.5  ->  halted at 2.551
+      floor placed at 3.0  ->  halted at 3.043
+      floor placed at 3.5  ->  halted at 3.518
+      slope 0.947, intercept +0.199, R^2 0.9997   (offset above the floor: +0.054 +- 0.031)
+      registered reading -> the halt IS the input floor
+
+======================================================================
+3. THE FROZEN STATE vs A KNOWN 3-DIMENSIONAL SPACE
+======================================================================
+  N = 30000 events, control = exact d=3 cloud, same instrument
+  dimension vs measuring-ball radius (UV first):
+    R = 0.35 x IR extent   frozen 10.366   control  3.343
+    R = 0.50 x IR extent   frozen  8.367   control  3.314
+    R = 0.70 x IR extent   frozen  6.075   control  3.270
+    R = 1.00 x IR extent   frozen  4.134   control  3.163
+    R = 1.40 x IR extent   frozen  3.068   control  2.983
+    R = 2.00 x IR extent   frozen  2.242   control  2.645
+    frozen varies by 8.124 across the window range; a real d=3 space varies by 0.698
+  spectral dimension by diffusion time (the observable CDT reports):
+    tau    4-   8   frozen  5.027   control  2.429
+    tau    8-  16   frozen  3.634   control  2.641
+    tau   16-  32   frozen  2.346   control  2.916
+    tau   32-  64   frozen  1.877   control  2.929
+    tau   64- 128   frozen  1.657   control  2.736
+    tau  128- 256   frozen  1.294   control  2.404
+    d_s runs 5.027 (UV) -> 1.294 (IR): UV ABOVE IR — opposite sign to CDT
+    same instrument on a real d=3 space: 2.429 -> 2.404 (finite-N droop, the size of the artifact to beat)
+
+======================================================================
+  runs in sweep: 29   sweep wall time: 587.9 s   flow wall time: 45.1 s
+======================================================================
