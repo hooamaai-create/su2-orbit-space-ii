@@ -160,3 +160,34 @@ unfired.
 above, the halting dimension is the input floor, the "chose three on its own"
 language is retired, and the model's content is the approach. Numbers and
 discussion in `README.md`; raw output in `TALLIES.txt`.
+
+## Grilled 2026-08-24 19:05 UTC — `grill.py`, adversarial review of this audit
+
+Six objections run against DIM-01 itself; full numbers in `TALLIES.txt` section
+4 and discussion in `README.md`.
+
+- **G1 (attack failed).** The per-probe spread is real, not estimator noise:
+  split-half reliability 0.77–0.96, and near the floor SD 0.519 = signal 0.510
+  + noise 0.100.
+- **G2/G3 (my own claim overturned).** D5's reading that "dispersion is what
+  carries the flow past the upper threshold, and nothing puts it in by hand"
+  is wrong as a causal claim. Deleting the spread changes nothing (6.121 ->
+  3.075 in the same 179 steps); driving w to 0.030 changes nothing. Removing
+  BOTH stalls the flow at 3.568. The pass-through is over-determined; the
+  dispersion is sufficient but not necessary.
+- **D7 and D2–D6 sharpened.** With Gamma = U x G and only G carrying a zero,
+  the halt cannot depend on w, eta0, N or the seed, and must sit at G's zero.
+  These passes are structural, readable off the rate without running anything.
+  D7 is properly read as "nothing intervenes between the flow and the zero".
+- **G4 (headline number corrected).** The halt is tolerance-limited at
+  gamma_stop = 1e-3; it converges to 3.040 by 1e-4. The 3.066 quoted at
+  registration is +0.026 high.
+- **G5 (new, and stronger than D7).** The halt is a property of the measuring
+  window, not of the geometry: windows R = 1.0, 1.4, 2.0 all halt at ~3.06 and
+  all leave different frozen states (read at R = 1.0 they are 3.18, 4.17,
+  4.75). "Froze at 3" is a statement about the instrument.
+- **G6 (defect in this reconstruction).** The rate compares per-probe
+  dimensions to d_collapse = 4 while every reported dimension is the pooled
+  estimate; the Jensen gap between them is +0.194, so the upper threshold bites
+  at pooled 3.81. Affects where the decay starts, not where it stops; no
+  conclusion changes, but "passes through 4" should read "through 3.8".

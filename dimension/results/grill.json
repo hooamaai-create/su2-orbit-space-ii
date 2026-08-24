@@ -1,0 +1,226 @@
+{
+ "G1_split_half": [
+  {
+   "n_probes": 593,
+   "median_neighbours": 385.0,
+   "observed_sd": 1.0365627300669507,
+   "signal_sd": 0.9111471391306238,
+   "noise_sd": 0.4942400066950565,
+   "half_corr": 0.6295342191508132,
+   "reliability": 0.7726554149674472,
+   "predicted_noise_sd": 0.2931211147794971,
+   "target": 6.0,
+   "d_measured": 5.917154719256003
+  },
+  {
+   "n_probes": 598,
+   "median_neighbours": 619.5,
+   "observed_sd": 0.7957870885702846,
+   "signal_sd": 0.7430021027405312,
+   "noise_sd": 0.28499993975143045,
+   "half_corr": 0.7726389589029842,
+   "reliability": 0.8717386640098892,
+   "predicted_noise_sd": 0.1746363809337011,
+   "target": 4.5,
+   "d_measured": 4.502326677548386
+  },
+  {
+   "n_probes": 600,
+   "median_neighbours": 1221.0,
+   "observed_sd": 0.519459943346267,
+   "signal_sd": 0.5097635250559698,
+   "noise_sd": 0.09989885516770748,
+   "half_corr": 0.928669588816726,
+   "reliability": 0.9630157432891154,
+   "predicted_noise_sd": 0.0898903059827846,
+   "target": 3.2,
+   "d_measured": 3.246432995111518
+  }
+ ],
+ "G2_U_decomposition": {
+  "mean_local_d": 3.4405177456638616,
+  "u_with_spread": 0.2779710557262522,
+  "u_flat": 0.24620340707175045
+ },
+ "G2_no_dispersion": {
+  "d_initial": 6.121357979776473,
+  "d_final": 3.075188064154076,
+  "steps": 179,
+  "halt": "rate_vanished"
+ },
+ "G3_hard_threshold": [
+  {
+   "w": 0.5,
+   "d_final": 3.065902383617067,
+   "steps": 179,
+   "halt": "rate_vanished"
+  },
+  {
+   "w": 0.25,
+   "d_final": 3.044515163490127,
+   "steps": 202,
+   "halt": "rate_vanished"
+  },
+  {
+   "w": 0.125,
+   "d_final": 3.0604871845721986,
+   "steps": 202,
+   "halt": "rate_vanished"
+  },
+  {
+   "w": 0.06,
+   "d_final": 3.0649403503057533,
+   "steps": 202,
+   "halt": "rate_vanished"
+  },
+  {
+   "w": 0.03,
+   "d_final": 3.065871355225752,
+   "steps": 202,
+   "halt": "rate_vanished"
+  }
+ ],
+ "G3b_crossed": [
+  {
+   "w": 0.03,
+   "no_dispersion": false,
+   "d_final": 3.065871355225752,
+   "steps": 202,
+   "halt": "rate_vanished"
+  },
+  {
+   "w": 0.5,
+   "no_dispersion": true,
+   "d_final": 3.075188064154076,
+   "steps": 179,
+   "halt": "rate_vanished"
+  },
+  {
+   "w": 0.03,
+   "no_dispersion": true,
+   "d_final": 3.568411954266147,
+   "steps": 41,
+   "halt": "rate_vanished"
+  },
+  {
+   "w": 0.01,
+   "no_dispersion": true,
+   "d_final": 3.6492674900221505,
+   "steps": 25,
+   "halt": "rate_vanished"
+  }
+ ],
+ "G4_tolerance": [
+  {
+   "gamma_stop": 0.01,
+   "d_final": 3.2451103956744767,
+   "steps": 72,
+   "halt": "rate_vanished"
+  },
+  {
+   "gamma_stop": 0.001,
+   "d_final": 3.065902383617067,
+   "steps": 179,
+   "halt": "rate_vanished"
+  },
+  {
+   "gamma_stop": 0.0001,
+   "d_final": 3.039561626458454,
+   "steps": 244,
+   "halt": "rate_vanished"
+  },
+  {
+   "gamma_stop": 1e-05,
+   "d_final": 3.039561626458454,
+   "steps": 244,
+   "halt": "rate_vanished"
+  }
+ ],
+ "G5_window": [
+  {
+   "f_r": 1.0,
+   "d_final": 3.067117295794535,
+   "steps": 242,
+   "halt": "rate_vanished",
+   "frozen_profile": [
+    {
+     "f_r": 0.5,
+     "r": 0.5025411751596546,
+     "d": 7.664942518690687
+    },
+    {
+     "f_r": 1.0,
+     "r": 1.0050823503193091,
+     "d": 3.1751250231405344
+    },
+    {
+     "f_r": 1.4,
+     "r": 1.4071152904470328,
+     "d": 2.1899424599465656
+    },
+    {
+     "f_r": 2.0,
+     "r": 2.0101647006386183,
+     "d": 1.586352929031188
+    }
+   ]
+  },
+  {
+   "f_r": 1.4,
+   "d_final": 3.065902383617067,
+   "steps": 179,
+   "halt": "rate_vanished",
+   "frozen_profile": [
+    {
+     "f_r": 0.5,
+     "r": 0.5025441420365685,
+     "d": 8.342230114278552
+    },
+    {
+     "f_r": 1.0,
+     "r": 1.005088284073137,
+     "d": 4.169325898082064
+    },
+    {
+     "f_r": 1.4,
+     "r": 1.4071235977023917,
+     "d": 3.0504698272403252
+    },
+    {
+     "f_r": 2.0,
+     "r": 2.010176568146274,
+     "d": 2.228363872525435
+    }
+   ]
+  },
+  {
+   "f_r": 2.0,
+   "d_final": 3.0528422480149158,
+   "steps": 110,
+   "halt": "rate_vanished",
+   "frozen_profile": [
+    {
+     "f_r": 0.5,
+     "r": 0.5025572425537459,
+     "d": 8.729271318872364
+    },
+    {
+     "f_r": 1.0,
+     "r": 1.0051144851074918,
+     "d": 4.750268568363265
+    },
+    {
+     "f_r": 1.4,
+     "r": 1.4071602791504885,
+     "d": 3.6407774750015336
+    },
+    {
+     "f_r": 2.0,
+     "r": 2.0102289702149836,
+     "d": 2.691645561752329
+    }
+   ]
+  }
+ ],
+ "wall_seconds": 261.7
+}

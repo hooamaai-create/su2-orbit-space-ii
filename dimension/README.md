@@ -32,29 +32,29 @@ every number quoted below from the raw JSON into `TALLIES.txt`.
 
 ## What reproduced
 
-It reproduced, and closely. An independent implementation of the mechanism, run
-from an initial measured dimension of **6.121**, decayed to **3.066** in **179
-steps** and stopped there because the instability rate had fallen by a factor
-of **1619** and crossed the stopping tolerance — `rate_vanished`, not a step
-budget running out. The exponential-approach fit puts the asymptote at
-**3.011**.
+An independent implementation of the mechanism, run from an initial measured
+dimension of **6.121**, decayed to **3.066** in **179 steps** and stopped
+because the instability rate had fallen by a factor of **1619** and crossed the
+stopping tolerance — `rate_vanished`, not a step budget running out.
 
-The step count is not comparable across implementations (different move,
-different step scale), but the shape is: a fast fall, a long slow approach, and
-a rate that shuts itself off rather than being switched off. Two details are
-worth keeping:
+An earlier draft of this file called that "reproduced, and closely." That was
+overstated, and the grilling section below is where it came apart. Three of the
+four things that "matched" were not free to differ:
 
-- The flow **does not stall at 4**. Starting from 4.6, 6.0, 8.3 and 9.9 it lands
-  at 3.035–3.111 every time, passing straight through the bound-state
-  threshold. That is real dynamical content, and it comes from the ensemble's
-  *dispersion*: with local dimensions spread around the mean, some fraction is
-  super-critical for any mean below 4, so the decay never switches itself off
-  at the upper threshold. Nothing puts that in by hand.
-- The reported halt at **2.97 sits just below 3**, where this implementation
-  halts on average **+0.054 above** the floor. A halt below the floor means
-  either estimator noise or a finite step overshooting a zero it approaches
-  asymptotically — worth checking in the original, since it is the signature of
-  the halting point being discretisation-limited rather than rate-limited.
+- the **starting dimension** 6.121 matches 6.10 because the initial-condition
+  parameter was tuned until it did;
+- the **landing point** near 3 is where the rate's coefficient was given a zero;
+- the **step count** (179 vs 112) does not match and cannot, since the move and
+  the step scale are different.
+
+What is left, and it is not nothing: the flow **self-arrests** rather than
+running to zero, and it **passes through the bound-state threshold at 4** from
+every start between 4.6 and 9.9. Those were free to come out otherwise.
+
+One detail worth checking in the original: the reported halt at **2.97 sits just
+below 3**, where this implementation halts **above** its floor. A halt below the
+floor is the signature of a finite step overshooting a zero the rate only
+approaches asymptotically.
 
 ## What the audit found
 
@@ -72,9 +72,11 @@ dimension quoted here, and F-D3 did not fire.
 | D6 | upper threshold, d_collapse = 3.5..5.0 | spread 0.049 (limit 0.20) | **PASS** |
 | D7 | **move the floor and see if the halt follows** | **slope 0.947, R² 0.9997** | **FIRES** |
 
-D2–D6 are the good news, and they are not nothing: the halting dimension does
-not ride on the soft parameter, the step size, the ensemble size, the seed, or
-the threshold that starts the decay. Whatever sets it is not a knob.
+D2–D6 say the halting dimension does not ride on the soft parameter, the step
+size, the ensemble size, the seed, or the threshold that starts the decay.
+Whatever sets it is not a knob. (How much credit that deserves is revisited
+under **Grilling the audit** — the rate is a product of two factors and only one
+of them has a zero, which makes most of D2–D6 structural rather than empirical.)
 
 D7 says what does set it. Handing the flow a different gravitational floor
 moves the halt with it, one for one:
@@ -106,6 +108,85 @@ One more registered outcome, confirmed: started **below** the floor at 2.623,
 the flow halts after a single step and stays there. There is no restoring term,
 so this is an absorbing halt, not a two-sided attractor. "Fixed point" is the
 wrong word for it; "the place the decay stops" is the right one.
+
+## Grilling the audit
+
+DIM-01 attacked the model. `grill.py` attacks DIM-01. Six objections, each with
+a run behind it. Two of my own claims did not survive, one attack failed, and
+one new finding is worse for the model than D7 was.
+
+**Overturned — "the dispersion carries the flow past 4."** I said the flow's
+ability to pass the bound-state threshold was real dynamical content coming from
+the ensemble's spread, and that nothing put it in by hand. Delete the spread
+entirely (set every probe to the ensemble mean) and the flow is *unchanged*:
+6.121 → 3.075 in the same 179 steps. At the default softening width, 89% of the
+rate survives with the spread deleted. So the spread was not what was carrying
+it.
+
+But the softening width is not what carries it either — at `w = 0.030`, near a
+hard step, the flow still reaches the floor. The crossed control settles it:
+
+```
+w = 0.030  dispersion intact    ->  halt 3.066   (202 steps)
+w = 0.500  dispersion deleted   ->  halt 3.075   (179 steps)
+w = 0.030  dispersion deleted   ->  halt 3.568   ( 41 steps)   <- stalls
+w = 0.010  dispersion deleted   ->  halt 3.649   ( 25 steps)   <- stalls
+```
+
+The pass-through is **over-determined**: real dispersion alone suffices, the
+softening alone suffices, neither is necessary, and removing both stalls the
+flow high. So the corrected claim is weaker than mine but stronger than nothing:
+the dispersion *can* carry the flow through the threshold on its own, and one of
+the two contributors is a genuine property of the ensemble rather than a
+modelling choice.
+
+**Attack failed — the spread is real.** I suspected the per-probe dispersion was
+sampling noise in a noisy estimator. Split-half reliability (each probe's
+dimension estimated twice from disjoint halves of its own neighbours) says no:
+reliability 0.77 → 0.96 along the flow, and near the floor the observed SD of
+0.519 is signal 0.510 against noise 0.100. The spread is a property of the
+ensemble, not of the measurement.
+
+**Sharpened — D7 was arithmetic dressed as discovery.** With the linear floor the
+rate is `Γ = U × (d − d_grav)/(d₀ − d_grav)`. The halt is where `Γ` crosses the
+tolerance, so `d_halt ≈ d_grav + tolerance × (d₀ − d_grav)/U`: slope 1 follows
+from the formula, not from the simulation. D7 could only have failed if `U` hit
+zero first (a stall, which G3b shows is possible) or if a finite step overshot.
+So D7 is properly read as *"nothing intervenes between the flow and the zero"* —
+and the underlying point, that the halt is the inserted zero, is visible by
+inspecting the rate without running anything. Same for most of D2–D6: `U`
+controls the speed and `G` owns the only zero, so the halt cannot depend on `w`,
+`eta0`, `N`, or the seed. Those passes are structural.
+
+**New, and worse than D7 — the halt belongs to the measuring window, not to the
+space.** Change the window the dynamics measures in and it still halts at ~3.06
+every time — but the *states* it leaves are entirely different geometries. Read
+at a common set of radii:
+
+| dynamics measures at | halts at | that frozen state read at R = 0.5 / 1.0 / 1.4 / 2.0 |
+|---|---|---|
+| R = 1.0 | 3.067 | 7.66 / 3.18 / 2.19 / 1.59 |
+| R = 1.4 | 3.066 | 8.34 / 4.17 / 3.05 / 2.23 |
+| R = 2.0 | 3.053 | 8.73 / 4.75 / 3.64 / 2.69 |
+
+Three different universes, all reporting "3". The flow does not drive the
+geometry to three dimensions; it drives *whatever number the rate is reading* to
+the zero in the rate. "Froze at 3" is a statement about the instrument.
+
+**Correction to the headline number.** The halt at 3.066 was partly the stopping
+tolerance, not the rate: tightening `gamma_stop` gives 3.245 (1e-2) → 3.066
+(1e-3) → 3.040 (1e-4) → 3.040 (1e-5). The converged value is **3.040**, and the
+figure quoted above is +0.026 high.
+
+**A defect in this reconstruction, found while grilling.** The rate compares
+*per-probe* dimensions to `d_collapse = 4`, but every dimension reported here is
+the *pooled* estimate, and the two are not on the same scale — on the same state
+the pooled value is 3.246 where the mean of per-probe values is 3.441, a Jensen
+gap of +0.194 between a ratio-of-sums and a mean-of-ratios. So the bound-state
+threshold actually bites at pooled 3.81, not 4. It shifts where the decay starts,
+not where it stops, so no conclusion above changes — but "the flow passes through
+4" should read "through 3.8 in the units everything else is quoted in", and the
+G3b stall at 3.57 rather than 4.0 is this same gap showing up.
 
 ## The convention problem — which is the real finding
 
@@ -189,9 +270,21 @@ point and watch the dimension rise. Until something rises, "fixed point" means
 "the place the decay stops", and a decay that stops where its coefficient
 vanishes has told us about the coefficient.
 
-The same test applies to the original code and takes five minutes there: move
-the gravitational threshold off 3 and see whether the halt moves with it. The
-D7 row above is that test run here.
+That change alone would not be enough, though, because it does not touch the
+window problem. A balance point computed from two rates that are both functions
+of *the dimension measured in one window* is still a fact about the window: the
+G5 table would come out the same way. Fixing that needs the dimension entering
+the rate to be scale-independent — a plateau in the scale profile, or an
+average over scales — so that "the state is 3-dimensional" is a statement
+something in the model could be wrong about. Right now nothing in it can be.
+
+Two tests apply directly to the original code and take minutes there:
+
+1. **Move the gravitational threshold off 3** and see whether the halt moves
+   with it. The D7 row above is that test run here.
+2. **Change the scale at which your dimension statistic is computed** and see
+   whether the halt stays at 3 while the frozen state changes. That is G5, and
+   it is the one that decides whether "3" refers to a space or to a ruler.
 
 ## Files
 
@@ -200,8 +293,9 @@ D7 row above is that test run here.
 | `SPEC.md` | the registered predictions D1–D7 and falsifiers F-D1..3, fixed before the sweep was read, plus Amendment 1 (the post-hoc statistic change and what it reversed) |
 | `dim_flow.py` | the model: estimator, instrument calibration, rate, move, flow, frozen-state measurements |
 | `dim_sweep.py` | the audit: seven blocks, one varied quantity each |
+| `grill.py` | the audit of the audit: split-half reliability, the dispersion and softening controls and their crossed control, tolerance sensitivity, window sensitivity |
 | `regen.py` | regenerates every number in this file from `results/*.json` |
-| `results/` | raw JSON: the default flow with its full trajectory, and the sweep |
+| `results/` | raw JSON: the default flow with its full trajectory, the sweep, and the grill |
 | `TALLIES.txt` | `regen.py` output, checked in so the numbers above can be diffed |
 
 Reproduce with:
@@ -209,5 +303,6 @@ Reproduce with:
 ```
 python dimension/dim_flow.py --out dimension/results/flow_default.json
 PYTHONPATH=dimension python dimension/dim_sweep.py --out dimension/results/sweep.json
+PYTHONPATH=dimension python dimension/grill.py --out dimension/results/grill.json
 python dimension/regen.py > dimension/TALLIES.txt
 ```

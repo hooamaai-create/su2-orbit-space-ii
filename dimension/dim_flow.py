@@ -236,18 +236,29 @@ def asymptote(traj, max_tail=120):
 
 def run_flow(cal, seed=0, n=3000, ambient=AMBIENT, decay=0.794, w=0.50,
              eta0=0.60, d_collapse=4.0, d_grav=3.0, floor='dof',
-             gamma_stop=1e-3, max_steps=400, nprobe=400, quiet=True):
+             gamma_stop=1e-3, max_steps=400, nprobe=400, quiet=True,
+             f_r=F_R, no_dispersion=False, capture_at=()):
+    """no_dispersion: replace every per-probe value by the ensemble mean, so
+    the rate sees a delta-function ensemble. Isolates how much of the flow's
+    ability to pass through the upper threshold comes from real spread and how
+    much from the softening width w alone.
+    capture_at: dimensions at which to keep a copy of the state, for later
+    scale-resolved inspection."""
     rng = np.random.default_rng(seed)
     x = init_state(rng, n, ambient, decay)
-    d0 = apply_cal(measure(x, rng, nprobe)[0], cal)
-    traj, halt = [], 'max_steps'
+    d0 = apply_cal(measure(x, rng, nprobe, f_r)[0], cal)
+    traj, halt, captures, pending = [], 'max_steps', {}, sorted(capture_at)[::-1]
     for step in range(max_steps):
-        raw, dloc_raw, _ = measure(x, rng, nprobe)
+        raw, dloc_raw, _ = measure(x, rng, nprobe, f_r)
         if not np.isfinite(raw):
             halt = 'estimator_starved'
             break
         d = apply_cal(raw, cal)
         dloc = apply_cal(dloc_raw, cal)
+        if no_dispersion:
+            dloc = np.full_like(dloc, float(np.mean(dloc)))
+        while pending and d <= pending[0]:
+            captures[pending.pop(0)] = x.copy()
         gam, u, g = instability_rate(dloc, d, w, d_collapse, d_grav, d0, floor)
         traj.append(dict(step=step, d=float(d), gamma=float(gam), u=float(u),
                          g=float(g), disp=float(np.std(dloc))))
@@ -258,12 +269,13 @@ def run_flow(cal, seed=0, n=3000, ambient=AMBIENT, decay=0.794, w=0.50,
             halt = 'rate_vanished'
             break
         x, _ = contract(x, eta0 * gam)
-    d_final = apply_cal(measure(x, rng, nprobe)[0], cal)
+    d_final = apply_cal(measure(x, rng, nprobe, f_r)[0], cal)
     return dict(params=dict(seed=seed, n=n, ambient=ambient, decay=decay, w=w,
                             eta0=eta0, d_collapse=d_collapse, d_grav=d_grav,
                             floor=floor, gamma_stop=gamma_stop,
-                            max_steps=max_steps, nprobe=nprobe, f_r=F_R,
-                            theta=THETA),
+                            max_steps=max_steps, nprobe=nprobe, f_r=f_r,
+                            theta=THETA, no_dispersion=no_dispersion),
+                captures=captures,
                 d_initial=float(d0), d_final=float(d_final), steps=len(traj),
                 halt=halt, fixed_point=asymptote(traj), trajectory=traj), x
 

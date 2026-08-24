@@ -67,3 +67,45 @@
 ======================================================================
   runs in sweep: 29   sweep wall time: 587.9 s   flow wall time: 45.1 s
 ======================================================================
+
+======================================================================
+4. GRILLING THE AUDIT (dimension/grill.py) — attacks on section 2
+======================================================================
+  G1 is the per-probe spread signal or estimator noise?
+     at d = 5.917  SD 1.037 = signal 0.911 + noise 0.494   reliability 0.773   (385 neighbours/probe)
+     at d = 4.502  SD 0.796 = signal 0.743 + noise 0.285   reliability 0.872   (620 neighbours/probe)
+     at d = 3.246  SD 0.519 = signal 0.510 + noise 0.100   reliability 0.963   (1221 neighbours/probe)
+     verdict: reliability 0.77-0.96 — the spread is REAL, not sampling noise. The attack fails.
+  G2 does the spread actually drive the flow?
+     U at mean local d = 3.441: 0.2780 with the spread, 0.2462 without (89% survives)
+     flow with the spread deleted: 6.121 -> 3.075 in 179 steps (rate_vanished) — unchanged
+     verdict: at the default softening the spread is NOT what carries the flow past the threshold.
+  G3 does the softening width w carry it instead?
+     w = 0.500  halt  3.066  ( 179 steps, rate_vanished)
+     w = 0.250  halt  3.045  ( 202 steps, rate_vanished)
+     w = 0.125  halt  3.060  ( 202 steps, rate_vanished)
+     w = 0.060  halt  3.065  ( 202 steps, rate_vanished)
+     w = 0.030  halt  3.066  ( 202 steps, rate_vanished)
+     verdict: no — at w = 0.03, near a hard step, the flow still reaches the floor.
+  G3b crossed control — remove both:
+     w = 0.030  dispersion intact   -> halt  3.066  ( 202 steps)
+     w = 0.500  dispersion deleted  -> halt  3.075  ( 179 steps)
+     w = 0.030  dispersion deleted  -> halt  3.568  (  41 steps)
+     w = 0.010  dispersion deleted  -> halt  3.649  (  25 steps)
+     verdict: with BOTH removed the flow stalls at 3.568, 3.649, well above the floor. The pass-through is OVER-DETERMINED — real dispersion alone suffices, the softening alone suffices, neither is necessary, removing both stops it early.
+  G4 is the halt pinned by the rate or the stopping tolerance?
+     gamma_stop 1e-02  halt  3.245  (  72 steps)
+     gamma_stop 1e-03  halt  3.066  ( 179 steps)
+     gamma_stop 1e-04  halt  3.040  ( 244 steps)
+     gamma_stop 1e-05  halt  3.040  ( 244 steps)
+     verdict: tolerance-limited at 1e-2; converges to 3.040 by 1e-4. The headline 3.066 was +0.026 high for that reason.
+  G5 is the halt a property of the geometry or of the window?
+     dynamics measures at R = 1.0 -> halts 3.067   frozen state read at R = 0.5: 7.66  1.0: 3.18  1.4: 2.19  2.0: 1.59
+     dynamics measures at R = 1.4 -> halts 3.066   frozen state read at R = 0.5: 8.34  1.0: 4.17  1.4: 3.05  2.0: 2.23
+     dynamics measures at R = 2.0 -> halts 3.053   frozen state read at R = 0.5: 8.73  1.0: 4.75  1.4: 3.64  2.0: 2.69
+     verdict: every window halts at ~3.06, and every window leaves a DIFFERENT geometry. The halt is a property of the measurement, not of the space.
+  G6 scale mismatch inside the rate (found while grilling):
+     on the same state, pooled estimate 3.246 vs mean of per-probe estimates 3.441  -> gap +0.194
+     the rate compares PER-PROBE values to d_collapse = 4 while the reported dimension is the POOLED value, so the bound-state threshold actually bites at pooled 3.81, not 4. A ratio-of-sums vs mean-of-ratios (Jensen) gap in dim_flow.measure; it shifts where the decay starts, not where it stops.
+  grill wall time: 261.7 s
+======================================================================
