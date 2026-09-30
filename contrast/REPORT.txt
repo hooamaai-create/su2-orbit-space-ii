@@ -1,0 +1,49 @@
+==============================================================================
+2D  SU(2), L = 32
+==============================================================================
+ beta   <P> measured    u = I2/I1   P/u-1   chi(2)      -ln u   C(1)/C(0)        m(0->1)   -4 ln u
+ 1.0   0.2396( 4)   0.2402    -0.2%   1.354(256)   1.426   +0.0021( 45)    6.16(315)   5.71
+ 2.0   0.4334( 4)   0.4331    +0.1%   0.858( 27)   0.837   -0.0020( 52)    6.19(433)   3.35
+ 4.0   0.6584( 3)   0.6580    +0.1%   0.417(  5)   0.418   -0.0027( 61)    5.90(349)   1.67
+ 8.0   0.8193( 1)   0.8192    +0.0%   0.199(  1)   0.199   +0.0040( 61)    5.52(180)   0.80
+
+  Wilson loops against the factorised answer W(R,T) = u^(R*T):
+   beta 1.0:  8 resolvable loops, max |pull|    1.0    W(3,3) = -0.00022 vs u^9 = 0.00000
+   beta 2.0: 10 resolvable loops, max |pull|    1.2    W(3,3) = 0.00122 vs u^9 = 0.00054
+   beta 4.0: 15 resolvable loops, max |pull|    2.2    W(3,3) = 0.02350 vs u^9 = 0.02314
+   beta 8.0: 16 resolvable loops, max |pull|    1.1    W(3,3) = 0.16515 vs u^9 = 0.16624
+
+  Creutz ratios chi(R), R = 2, 3, 4 (flat in R = pure area law):
+   beta 1.0: 1.354(256),   n/a ,   n/a     strong coupling -ln u = 1.426
+   beta 2.0: 0.858(27),   n/a ,   n/a     strong coupling -ln u = 0.837
+   beta 4.0: 0.417(5), 0.423(35),   n/a     strong coupling -ln u = 0.418
+   beta 8.0: 0.199(1), 0.203(3), 0.210(22)    strong coupling -ln u = 0.199
+
+==============================================================================
+4D  SU(2), L = 8
+==============================================================================
+ beta   <P> measured    u = I2/I1   P/u-1   chi(2)      -ln u   C(1)/C(0)        m(0->1)   -4 ln u
+ 1.0   0.2433( 1)   0.2402    +1.3%   1.295( 64)   1.426   +0.0012(137)    6.71(520)   5.71
+ 1.5   0.3625( 2)   0.3441    +5.3%   0.994( 15)   1.067   -0.0047(159)    5.36(417)   4.27
+ 2.0   0.5011( 2)   0.4331   +15.7%   0.600(  4)   0.837   +0.0737(124)    2.61( 17)   3.35
+ 2.2   0.5694( 3)   0.4645   +22.6%   0.406(  2)   0.767   +0.1415(132)    1.96(  8)   3.07
+ 2.4   0.6302( 2)   0.4935   +27.7%   0.252(  1)   0.706   +0.0840(155)    2.48( 18)   2.82
+ 2.6   0.6701( 1)   0.5203   +28.8%   0.187(  1)   0.653   +0.0742(139)    2.60( 19)   2.61
+
+  Wilson loops against the factorised answer W(R,T) = u^(R*T):
+   beta 1.0:  8 resolvable loops, max |pull|   11.8    W(3,3) = 0.00017 vs u^9 = 0.00000
+   beta 1.5: 10 resolvable loops, max |pull|   67.6    W(3,3) = 0.00005 vs u^9 = 0.00007
+   beta 2.0: 12 resolvable loops, max |pull|  277.9    W(3,3) = 0.00355 vs u^9 = 0.00054
+   beta 2.2: 13 resolvable loops, max |pull|  366.9    W(3,3) = 0.01730 vs u^9 = 0.00101
+   beta 2.4: 13 resolvable loops, max |pull|  539.6    W(3,3) = 0.05997 vs u^9 = 0.00174
+   beta 2.6: 13 resolvable loops, max |pull|  707.9    W(3,3) = 0.10659 vs u^9 = 0.00280
+
+  Creutz ratios chi(R), R = 2, 3, 4 (flat in R = pure area law):
+   beta 1.0: 1.295(64),   n/a ,   n/a     strong coupling -ln u = 1.426
+   beta 1.5: 0.994(15),   n/a ,   n/a     strong coupling -ln u = 1.067
+   beta 2.0: 0.600(4), 0.560(58),   n/a     strong coupling -ln u = 0.837
+   beta 2.2: 0.406(2), 0.332(11),   n/a     strong coupling -ln u = 0.767
+   beta 2.4: 0.252(1), 0.145(3), 0.076(19)    strong coupling -ln u = 0.706
+   beta 2.6: 0.187(1), 0.083(2), 0.048(5)    strong coupling -ln u = 0.653
+
+total wall time 494.1 s; jackknife bins 20

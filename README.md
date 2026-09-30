@@ -150,6 +150,7 @@ blind-tested per-configuration laws around it.
 | `gpu/` | the eight run engines + Kaggle notebooks (free-GPU reproducible; guard cell handles P100/T4) |
 | `results/` | raw JSON outputs, per-configuration arrays included from run 14 onward |
 | `analysis/` | scoring scripts, the quant sweep, the matched-window fitter, and `regen_tallies.py` — run it to regenerate every number in this README |
+| `contrast/` | the same SU(2) engine run in 2D and 4D: 2D reproduced exactly (plaquette, every Wilson loop, zero slice correlation), and the 4D couplings where each piece of the 2D solution fails. Explicitly not a mass-gap proof; see `contrast/README.md` |
 | `dimension/` | **not part of this record** — a separate toy model (dimension as a measured statistic, and where its decay halts) kept here for its method, not its evidence. See `dimension/README.md`; nothing in it bears on any claim above, and it is outside the Zenodo deposit |
 
 ## Credit
