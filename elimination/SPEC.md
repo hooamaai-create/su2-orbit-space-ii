@@ -79,7 +79,7 @@ cutoff and is not established as physical by this run.
 
 ---
 
-## Scored 2026-10-01 02:35 UTC (appended; everything above is unchanged)
+## Scored 2026-10-01 01:50 UTC (appended; everything above is unchanged)
 
 `analyse.py` was run byte-identical to its pre-data commit (07f28fa). Full
 output in `REPORT.txt`.
