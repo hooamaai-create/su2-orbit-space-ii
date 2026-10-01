@@ -75,3 +75,35 @@ the span of the 242 operators, at 2σ. Reading, per channel:
    finite-volume states, not accidental light glueballs.
 4. Upper bounds only for masses: m_eff approaches each channel's ground state
    from above.
+
+---
+
+## Scored 2026-10-01 03:12 UTC (appended; everything above is unchanged)
+
+`analyse.py` run byte-identical to its pre-data commit (15ea1ad), on 4000
+measurements from 4 streams. Full output in `REPORT.txt`.
+
+- **S1 PASS.** (a) A1⁺ m_eff(1→2) = 1.168(58) vs ELIM-01's 1.197(117):
+  0.22σ. (b) The bound does not exclude the 0⁺⁺ that exists:
+  w_max(E = m₀) = 0.816 in A1⁺.
+- **S2 PASS.** E⁺ 2.149(53) vs T2⁺ 2.218(35), 3.2% apart, 1.1σ.
+- **S3 PASS, 9/9.** Every channel's m_eff(0→1) is heavier than A1⁺'s
+  1.424(27), by factors of 1.51 (E⁺) to 3.03 (A2⁻).
+- **S4 PASS: loophole closed in all 10 channels.** w_max(0) ranges over
+  0.004–0.049 against the 0.10 threshold, and w_max(m₀/2) over 0.022–0.154
+  against 0.30.
+
+**A post-hoc finding, reported with equal prominence.** In T1⁺, T1⁻ and T2⁻
+the second effective mass m_eff(1→2) comes out at 0.439(122), 0.331(143) and
+0.901(211), lighter than the scalar. That is what an accidental light state
+would look like, and S3's registered criterion, which uses m_eff(0→1), does
+not see it. `noise_floor.py`, written after reading the report, tests it
+against a null of pure-noise matrices with the measured element errors. The
+plateaus sit exactly on the noise floor: T1⁺ reads 0.034–0.036 vs a noise
+mean of 0.036; T1⁻ 0.039–0.046 vs 0.043; T2⁻ 0.028 vs 0.029. These are the
+upward bias of a largest eigenvalue taken over 20–42 noisy directions, not
+states. Only A1⁺ at t = 2, 3 and E⁺ at t = 2 stand above the 95th
+percentile of noise, which is 3 of 30 cells against 1.5 expected by chance,
+and both are glueballs known to exist. That bias is also inside S4's bound, so
+the bound is conservative. In the large-basis channels, w_max(0) ≈ 0.04–0.05
+is the noise floor itself: that is the limit of what this run can see there.
