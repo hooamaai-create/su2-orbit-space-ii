@@ -58,10 +58,13 @@ def random_su2(rng, shape):
 # ------------------------------------------------------------ lattice
 
 class Lattice:
-    def __init__(self, dim, L, beta, seed=0, hot=True):
+    def __init__(self, dim, L, beta, seed=0, hot=True, shape=None):
+        """shape: optional per-axis extents (all even, so the checkerboard
+        is consistent on the torus); default is a symmetric L^dim lattice."""
         self.D, self.L, self.beta = dim, L, beta
         self.rng = np.random.default_rng(seed)
-        shape = (L,) * dim
+        shape = tuple(shape) if shape is not None else (L,) * dim
+        assert len(shape) == dim and all(e % 2 == 0 for e in shape)
         if hot:
             self.U = random_su2(self.rng, (dim,) + shape)
         else:
