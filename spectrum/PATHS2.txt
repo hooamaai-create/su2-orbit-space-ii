@@ -1,0 +1,67 @@
+==============================================================================
+A1+ (0++)   level-5 smearing only, correlated jackknife
+==============================================================================
+  plaquette         c(1)/c(0) = 0.2171   m(1->2) = 1.143(54)
+  2x1 rect          c(1)/c(0) = 0.2404   m(1->2) = 1.156(55)
+  6-link bent       c(1)/c(0) = 0.2224   m(1->2) = 1.148(56)
+  6-link twisted    c(1)/c(0) = 0.2313   m(1->2) = 1.154(56)
+  8-link chiral a   c(1)/c(0) = 0.2357   m(1->2) = 1.153(55)
+  8-link chiral b   c(1)/c(0) = 0.2376   m(1->2) = 1.155(55)
+  pair                                  d[c(1)/c(0)]   z      d m(1->2)   z
+  plaquette       vs 2x1 rect         -0.0233   -12.1    -0.013   -0.80
+  plaquette       vs 6-link bent      -0.0053    -4.9    -0.005   -0.57
+  plaquette       vs 6-link twisted   -0.0142    -7.0    -0.011   -0.73
+  plaquette       vs 8-link chiral a  -0.0186   -11.8    -0.011   -0.77
+  plaquette       vs 8-link chiral b  -0.0205   -11.7    -0.012   -0.84
+  2x1 rect        vs 6-link bent      +0.0180   +17.1    +0.008   +0.76
+  2x1 rect        vs 6-link twisted   +0.0091   +15.8    +0.002   +0.37
+  2x1 rect        vs 8-link chiral a  +0.0047   +12.3    +0.002   +0.76
+  2x1 rect        vs 8-link chiral b  +0.0028   +10.4    +0.001   +0.24
+  6-link bent     vs 6-link twisted   -0.0089    -9.1    -0.006   -0.82
+  6-link bent     vs 8-link chiral a  -0.0133   -18.4    -0.005   -0.73
+  6-link bent     vs 8-link chiral b  -0.0152   -17.0    -0.007   -0.82
+  6-link twisted  vs 8-link chiral a  -0.0044    -6.7    +0.000   +0.11
+  6-link twisted  vs 8-link chiral b  -0.0063   -10.2    -0.001   -0.28
+  8-link chiral a vs 8-link chiral b  -0.0019    -9.2    -0.002   -1.02
+  P2' paths differ: max |z| = 18.4 -> PASS
+  P1' same rate: max |z| = 1.02 over 15 pairs -> PASS
+  -> different paths, same rate
+==============================================================================
+E+ (2++)   level-5 smearing only, correlated jackknife
+==============================================================================
+  plaquette         c(1)/c(0) = 0.0924   m(1->2) = 1.559(274)
+  2x1 rect          c(1)/c(0) = 0.1103   m(1->2) = 1.534(220)
+  6-link bent       c(1)/c(0) = 0.0943   m(1->2) = 1.490(246)
+  8-link chiral a   c(1)/c(0) = 0.1106   m(1->2) = 1.511(198)
+  8-link chiral b   c(1)/c(0) = 0.1096   m(1->2) = 1.522(223)
+  pair                                  d[c(1)/c(0)]   z      d m(1->2)   z
+  plaquette       vs 2x1 rect         -0.0179    -6.1    +0.024   +0.14
+  plaquette       vs 6-link bent      -0.0018    -0.3    +0.069   +0.22
+  plaquette       vs 8-link chiral a  -0.0182    -5.6    +0.048   +0.30
+  plaquette       vs 8-link chiral b  -0.0171    -8.1    +0.036   +0.23
+  2x1 rect        vs 6-link bent      +0.0161    +5.2    +0.045   +0.16
+  2x1 rect        vs 8-link chiral a  -0.0003    -0.6    +0.024   +0.18
+  2x1 rect        vs 8-link chiral b  +0.0008    +0.7    +0.012   +0.14
+  6-link bent     vs 8-link chiral a  -0.0163    -5.7    -0.021   -0.10
+  6-link bent     vs 8-link chiral b  -0.0153    -3.8    -0.033   -0.11
+  8-link chiral a vs 8-link chiral b  +0.0011    +0.8    -0.011   -0.09
+  P2' paths differ: max |z| = 8.1 -> PASS
+  P1' same rate: max |z| = 0.30 over 10 pairs -> PASS
+  -> different paths, same rate
+==============================================================================
+T2+ (2++)   level-5 smearing only, correlated jackknife
+==============================================================================
+  6-link bent       c(1)/c(0) = 0.1024   m(1->2) = 1.698(257)
+  6-link twisted    c(1)/c(0) = 0.1031   m(1->2) = 1.678(249)
+  8-link chiral a   c(1)/c(0) = 0.1060   m(1->2) = 1.629(249)
+  8-link chiral b   c(1)/c(0) = 0.1047   m(1->2) = 1.436(158)
+  pair                                  d[c(1)/c(0)]   z      d m(1->2)   z
+  6-link bent     vs 6-link twisted   -0.0007    -1.3    +0.020   +1.07
+  6-link bent     vs 8-link chiral a  -0.0035    -2.4    +0.070   +0.58
+  6-link bent     vs 8-link chiral b  -0.0023    -2.0    +0.262   +1.11
+  6-link twisted  vs 8-link chiral a  -0.0029    -2.2    +0.050   +0.44
+  6-link twisted  vs 8-link chiral b  -0.0016    -1.6    +0.242   +1.06
+  8-link chiral a vs 8-link chiral b  +0.0012    +0.9    +0.192   +0.79
+  P2' paths differ: max |z| = 2.4 -> FAIL (uninformative)
+  P1' same rate: max |z| = 1.11 over 6 pairs -> PASS
+  -> uninformative

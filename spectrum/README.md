@@ -101,6 +101,30 @@ Two consequences:
   evidence that the last loophole is empty here. It is not a theorem that it
   is empty everywhere.
 
+## Feynman's path independence, applied (PATHS-01, PATHS-02)
+
+Feynman Vol. I, 13-1: gravity's work depends only on the endpoints, not on
+path A or B. The quantum version, with both paths given the **same time**:
+every operator ("path") with the same quantum numbers ("endpoints") must decay
+at the same rate, the mass of the lightest state, and differ only in
+amplitude.
+
+- **PATHS-01 was uninformative by its own registered rule.** Heavy smearing
+  turned every loop shape into the same operator, and independent error bars
+  on shared configurations hid the differences. Kept in the record as it fell.
+- **PATHS-02 (light smearing, correlated jackknife)**, in the 0⁺⁺: six loop
+  shapes whose amplitudes differ by up to **18σ** all decay at the same rate,
+  with every one of 15 pairs within **1.0σ**, about 1.5% in mass. In the 2⁺⁺
+  (E⁺), amplitudes differ by up to 8σ and rates agree within 0.3σ, at a ~10%
+  level. In T2⁺ the shapes weren't distinct enough to say anything.
+- **What it means:** measurably different paths into the same quantum numbers
+  find one and the same lightest state. That is what quantum mechanics
+  guarantees when a lowest state exists, so it is a consistency property of
+  the gap, not a proof of it.
+
+Files: `PATHS_SPEC.md` (both registrations and both scores), `paths.py` /
+`PATHS.txt`, `paths2.py` / `PATHS2.txt`.
+
 ## Files
 
 | file | contents |

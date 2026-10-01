@@ -71,3 +71,23 @@ difference.
 - Reading: P2′ and P1′ both hold in a channel → in that channel, measurably
   different paths decay at the same rate. P2′ fails → still uninformative.
   P1′ fails → paths decay at different rates, reported as the headline.
+
+## Scored 2026-10-01 03:18 UTC — PATHS-02 (appended)
+
+- **A1⁺ (0⁺⁺): different paths, same rate.** P2′ PASS: the six shapes differ
+  in amplitude by up to 18.4σ (correlated). P1′ PASS: all 15 pairs agree in
+  m(1→2) within 1.02σ. The correlated error on a mass *difference* is about
+  0.015, against 0.055 on each mass, so the shapes agree on the rate to about
+  1.5%.
+- **E⁺ (2⁺⁺): different paths, same rate.** P2′ PASS (up to 8.1σ). P1′ PASS
+  (all 10 pairs within 0.30σ). This test is weaker: the difference errors are
+  ~0.1–0.2, so agreement is at the ~10% level.
+- **T2⁺ (2⁺⁺): uninformative.** P2′ FAIL (largest amplitude difference 2.4σ):
+  these four shapes aren't distinct enough even at light smearing.
+
+What this does and does not mean: a common decay rate for every path into a
+channel is what quantum mechanics guarantees whenever that channel has a
+lowest state. So this confirms the measurement sees **one** state per channel,
+reached the same way from very different starting shapes, and not a mix of
+shape-dependent artefacts. It is a necessary property of a gapped theory, not
+a proof that the theory is gapped.
