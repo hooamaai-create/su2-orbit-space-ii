@@ -38,3 +38,36 @@ steps, in A1⁺ (0⁺⁺; all 6 shapes), E⁺ and T2⁺ (2⁺⁺; 5 and 4 shapes
 Reading: P1 + P2 hold → one rate, many paths: the gap behaves as an
 endpoint-only quantity. P1 fails for a shape by > 3σ → that shape reaches a
 different lightest state, and that is reported as the headline.
+
+---
+
+## Scored 2026-10-01 03:18 UTC — PATHS-01 (appended)
+
+- **P1 PASS:** 15/15 shapes within 2σ of the all-shape mass at t = 1→2 (most
+  within 0.5σ).
+- **P2 FAIL in all three channels:** the largest amplitude difference is 2.2σ
+  (A1⁺), 1.6σ (E⁺), 0.3σ (T2⁺). By the reading registered above, **P1 is
+  therefore uninformative.** Agreement between paths that can't be told apart
+  is a tautology.
+- **P3:** yes, in all three.
+
+Diagnosis, two design errors: (1) the 15-step smearing level is in every
+shape's basis and turns all loop shapes into the same smooth operator; (2)
+shapes share configurations, so independent error bars inflate agreement in P1
+and hide differences in P2. The correct statistic is the jackknife of the
+difference.
+
+## PATHS-02 — the corrected test (registered now, before it is run)
+
+- **Only the lightly smeared level (5 steps)**, where the shapes differ. A1⁺:
+  one operator per shape, no GEVP (so no largest-eigenvalue bias). E⁺, T2⁺:
+  GEVP within each shape's level-5 rows only.
+- **All comparisons by correlated jackknife:** each difference is computed
+  inside every jackknife sample.
+- **P2′ (paths differ):** at least one pair of shapes in each channel differs
+  in normalised correlator c(1)/c(0) by > 3σ (correlated).
+- **P1′ (same rate):** every pair of shapes agrees in m(1→2) within 3σ
+  (correlated). 3σ, not 2σ, because there are up to 15 pairs per channel.
+- Reading: P2′ and P1′ both hold in a channel → in that channel, measurably
+  different paths decay at the same rate. P2′ fails → still uninformative.
+  P1′ fails → paths decay at different rates, reported as the headline.
