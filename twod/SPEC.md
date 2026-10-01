@@ -30,3 +30,16 @@ plaquette sum (doesn't). Cosh effective masses, 20-bin jackknife.
 Reading: all three hold → the only energy in 2D is flux energy proportional to
 the box, and nothing is a particle, matching the theorem. Any failure is
 reported as a failure of the engine, since the theorem is not in doubt.
+
+---
+
+## Scored 2026-10-01 03:32 UTC (appended)
+
+- **Q1 PASS, 4/4.** Flux-line energy E(L_x) = 0.8001(22), 1.1964(49),
+  1.6003(74), 1.9802(88) against the exact −L_x ln u = 0.7975, 1.1962,
+  1.5949, 1.9937 (+1.2, 0.0, +0.7, −1.5σ).
+- **Q2 PASS.** E = 0.1980(12)·L_x + 0.0085(59), against an exact slope of
+  0.1994 and an intercept of 0. Linear χ² = 2.0/2; "a particle (E constant)"
+  χ² = 28547/3.
+- **Q3 PASS.** The glueball (non-winding) channel is empty: C(1)/C(0) and
+  C(2)/C(0) lie within ±0.0017, all within 3σ of 0, in every box.

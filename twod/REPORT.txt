@@ -1,0 +1,11 @@
+2D SU(2), beta = 8.0, L_t = 32, 20000 measurements per box; exact slope -ln u = 0.1994
+  L_x   flux-line E(0->1)   E(1->2)        exact -L ln u   glueball C(1)/C(0)    C(2)/C(0)
+    4    0.8001( 22)    0.798(  5)     0.7975  (+1.2 sigma)   +0.0003(11)    +0.0010(10)
+    6    1.1964( 49)    1.197( 11)     1.1962  (+0.0 sigma)   +0.0017(13)    -0.0015(12)
+    8    1.6003( 74)    1.594( 25)     1.5949  (+0.7 sigma)   +0.0013(13)    -0.0014(9)
+   10    1.9802( 88)    1.868( 59)     1.9937  (-1.5 sigma)   -0.0012(11)    -0.0015(10)
+
+Q1 E(L) = -L ln u at every box: PASS (4/4)
+Q2 linear fit: E = 0.1980(12) L +0.0085(59); exact slope 0.1994, intercept 0 -> PASS
+   chi2 linear = 2.0/2;  chi2 "a particle (E constant)" = 28547/3
+Q3 glueball channel empty at t=1,2 in every box: PASS
