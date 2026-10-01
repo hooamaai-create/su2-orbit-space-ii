@@ -76,3 +76,34 @@ cutoff and is not established as physical by this run.
    the data prefer up to L√σ ≈ 4.5.
 2. Three couplings over a factor ~1.4 in spacing is not a continuum limit.
 3. CPU numpy, modest statistics. Error bars are jackknife, binned.
+
+---
+
+## Scored 2026-10-01 02:35 UTC (appended; everything above is unchanged)
+
+`analyse.py` was run byte-identical to its pre-data commit (07f28fa). Full
+output in `REPORT.txt`.
+
+- **F1** not fired: engine unchanged since `contrast/` validation; 2D β = 4
+  plaquette re-checked at 0.6579 vs exact 0.6580.
+- **E1(a) PASS**, 5/5: σa² > 0 at 45–114σ at every coupling.
+- **E1(b) FAIL as registered**: ⟨|P̄|⟩√(L³) = 0.852, 0.508, 0.423, 0.420 at
+  L = 6, 8, 10, 12, a spread of 78.5% against the 25% limit. Per the reading
+  fixed above, **E1 is scored "B not excluded"**, and that verdict stands.
+  For the record, not as a rescue: the failure goes the opposite way from a
+  broken centre (which would grow 5.2×; this shrinks 2×, then flattens at
+  L = 10–12). The test was badly designed. On symmetric L⁴ lattices the
+  temporal extent grows with L, and the Polyakov-loop susceptibility depends
+  on it, so a constant product was never the right prediction. The correct
+  test (fixed L_t, spatial volume varied) needs a fresh registration.
+- **F2** not fired by its registered criterion at L = 12. But the criterion
+  was weak: m(2→3) there is noise-dominated (2.856 with an undefined error),
+  so a plateau is not demonstrated either. At L = 10, m(2→3) sits 2.1σ below
+  m(1→2), which suggests excited-state contamination in the primary masses.
+- **E2: D disfavoured**, Δχ² = +12.2 (> 9). m(L) = 1.140(98), 1.197(117),
+  1.414(175) at L = 8, 10, 12: consistent with a constant (χ² 1.87/2), not
+  with m ∝ 1/L (χ² 14.10/2). L = 6 sits lower, at 0.961(57), as the
+  registered small-box expectation said.
+- **E3 PASS**: m₀₊₊/√σ = 3.62(63), 3.75(46), 3.59(23) at β = 2.2, 2.3, 2.4,
+  a spread of 4.2% against the 15% limit. The individual errors are 6–17%,
+  so this test has modest power.

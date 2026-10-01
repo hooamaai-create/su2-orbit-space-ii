@@ -150,6 +150,7 @@ blind-tested per-configuration laws around it.
 | `gpu/` | the eight run engines + Kaggle notebooks (free-GPU reproducible; guard cell handles P100/T4) |
 | `results/` | raw JSON outputs, per-configuration arrays included from run 14 onward |
 | `analysis/` | scoring scripts, the quant sweep, the matched-window fitter, and `regen_tallies.py` — run it to regenerate every number in this README |
+| `elimination/` | ELIM-01: the mass gap re-asked as "which long-distance phase?" String tension > 0 at 45–114σ; scale invariance disfavoured (Δχ² = 12.2); m₀₊₊/√σ ≈ 3.6–3.75 across three spacings. One registered test (centre symmetry) failed through bad design and is reported as failed. Numerics, not proof — see `elimination/README.md` |
 | `contrast/` | the same SU(2) engine run in 2D and 4D: 2D reproduced exactly (plaquette, every Wilson loop, zero slice correlation), and the 4D couplings where each piece of the 2D solution fails. Explicitly not a mass-gap proof; see `contrast/README.md` |
 | `dimension/` | **not part of this record** — a separate toy model (dimension as a measured statistic, and where its decay halts) kept here for its method, not its evidence. See `dimension/README.md`; nothing in it bears on any claim above, and it is outside the Zenodo deposit |
 
