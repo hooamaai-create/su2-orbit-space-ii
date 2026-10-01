@@ -30,3 +30,21 @@ R ≥ 2 fit is reported alongside, not scored.
 - Reading: L1 and L2 → "4D at long distance = a 2D string, plus two sideways
   dimensions." L2 fails → the effective-string picture is not reached at
   R ≤ 6 on these lattices, and D_eff is reported as measured.
+
+---
+
+## Scored 2026-10-01 03:20 UTC (appended)
+
+| | c (R ≥ 3) | D_eff | vs 0 | vs π/12 |
+|---|---|---|---|---|
+| β = 2.4, L = 12 | 0.268(32) | **4.05(24)** | 8.4σ | +0.2σ |
+| β = 2.3, L = 12 | 0.219(104) | 3.67(80) | 2.1σ | −0.4σ |
+
+- **L1 FAIL as registered.** At β = 2.4, c ≠ 0 at 8.4σ; at β = 2.3 only at
+  2.1σ, because the R = 5, 6 potentials there are too noisy for a 3-parameter
+  fit with 1 degree of freedom. The rule required > 5σ at both, so "the flux
+  tube is not 2D Yang–Mills" is established at one coupling, not two.
+- **L2 PASS.** Both couplings are consistent with π/12 (+0.2σ, −0.4σ): the
+  flux tube behaves as a 2D sheet wobbling in two sideways directions, D_eff ≈ 4.
+- The unscored R ≥ 2 fits give D_eff = 4.14(20) and 4.10(5), the second
+  2.0σ above π/12, which is short-distance contamination at R = 2.
