@@ -37,3 +37,32 @@ it claims nothing new.
 
 No physics claim is attached to BOOT-01. Its output is a validated instrument,
 plus the honest width of its bounds compared with the published ones.
+
+---
+
+## V1 scored 2026-10-02 08:23 UTC
+
+**V1 FAIL as registered.** 4D, 120 configurations: 1 of 6 equations at
++3.38σ; "every equation within 3σ" fails. My script had allowed one
+exception the spec never granted. That was my error, and the gate is scored
+as written. The test also had no power: a 2% coefficient error went
+undetected (z = 1.3).
+
+Post-registration diagnostics (`V1_diag_2d.txt`, `V1_diag_4d.txt`):
+- 2D, β = 4, L = 48, 3000 configurations, all loops of length 4–10 (120
+  equations, including self-crossing loops): mean z² = 0.95; max |z| = 3.65,
+  1 of 120 beyond 3σ, which is about a 3% chance with 120 tests. A 2%
+  coefficient error is caught at 50σ.
+- 4D, 500 configurations (same seed as V1, so not independent): 0 of 6 beyond
+  3σ, max 2.75σ, again in the same equation; the 2% error is caught at 7.5σ.
+
+## V1′ — registered now, before it is run
+
+Same code; **fresh seeds**. 2D (β = 4, L = 48, 3000 configurations, loops of
+length 4–10) and 4D (β = 2.3, L = 6, 600 configurations, loops of length 4–6).
+Pass in each dimension iff all of:
+(a) max |z| < z_N, the two-sided 1% family-wise threshold for N equations
+    (z_N = Φ⁻¹(1 − 0.005/N));
+(b) mean z² < 2 (correct equations give ≈ 1; correlations inflate it modestly);
+(c) the 2% negative control is caught at |z| > 5.
+The 4D equation that was worst twice is reported by name, whatever happens.

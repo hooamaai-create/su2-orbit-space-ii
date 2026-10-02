@@ -1,0 +1,8 @@
+6 distinct equations from all loops of lengths (4, 6) (D=4); 35 distinct loops (max length 10)
+residual / typical term size: median 6.02e-04, max 2.14e-03
+|z| > 3: 0 of 6 equations;  max |z| = 2.75;  mean z^2 = 1.99 (about 1 if all equations hold; equations are correlated)
+   worst eq 5: residual +9.42e-03 +- 3.4e-03  (z = +2.75)
+   worst eq 2: residual +6.32e-03 +- 5.4e-03  (z = +1.18)
+   worst eq 4: residual +2.53e-03 +- 2.2e-03  (z = +1.14)
+V1 (every equation within 3 sigma, as registered) -> PASS
+negative control (one coefficient off by 2%): z = +7.5  -> caught
