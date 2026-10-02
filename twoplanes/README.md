@@ -43,6 +43,30 @@ The particle is lighter the more strongly the sheets are joined: about 3.1 at
 fit the same picture: as the joining planes are switched off, the particle
 gets heavier and heavier, and at κ = 0 there's nothing left.
 
+## Why weaker joining means a heavier particle (post-hoc, descriptive)
+
+A glueball is a closed flux loop. To move forward in time it sweeps a tube,
+and for a loop in the (x,y) plane two of the tube's walls lie in joining
+planes. Leading strong coupling therefore gives
+m ≈ 2(−ln u(β)) + 2(−ln u(κβ)): each step in time costs one sheet plaquette and
+one joining plaquette per wall pair.
+
+| κ | strong-coupling estimate | measured m(0→1) (L = 8 / 10) |
+|---|---|---|
+| 0 | ∞ | none: two 2D worlds |
+| 0.25 | 5.38 | no signal; e^(−5.4) ≈ 0.005 is below the ~0.012 noise floor |
+| 0.5 | 4.07 | faint hint; e^(−4.1) ≈ 0.017, at the noise floor |
+| 0.75 | 3.37 | 3.19 / 3.11, agrees to 7% |
+| 1 | 2.94 | 1.45 / 1.44, off by ×2 |
+
+So "too heavy to see" is the right reading at weak joining: the particle
+exists at every κ > 0, and its mass is the cost of moving flux through the
+joining planes. This is textbook strong-coupling physics, not a new effect.
+At κ = 1, real 4D, the estimate fails by a factor of 2, which is the same
+breakdown `contrast/` measured. In real 4D, symmetry fixes all six planes
+equally stiff, so there is no κ to tune. What sets the glueball mass there is
+how the coupling runs with distance, and that is the unsolved part.
+
 ## What it means
 
 The same answer as the mirror experiment, reached a different way: **two 2D
