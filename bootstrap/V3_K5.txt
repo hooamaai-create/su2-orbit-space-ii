@@ -1,0 +1,4 @@
+  D=4 K=5: 18 Gram blocks (largest [199, 132, 86, 60]), 6 equations, 267 loop variables [89.8s]
+  4D beta=2.3 K=5 (loops <= 10): [-0.00000, 0.74008]  width 0.740   MC 0.6022 -> brackets  (solved/solved)
+  peak RSS MB 224  elapsed s 474
+python exit 0

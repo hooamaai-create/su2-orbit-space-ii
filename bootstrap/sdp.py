@@ -77,3 +77,125 @@ def bounds(D, beta, K, obs=PLAQ, verbose=False, solver='CLARABEL'):
         out[sense] = (float(w.value[target]) if w.value is not None else np.nan,
                       prob.status, round(time.time() - t0, 1))
     return out
+
+
+# ---------------------------------------------------------------------------
+# Direct Clarabel formulation (no cvxpy): same program, ~100x less memory.
+# PSD blocks enter in Clarabel's svec form: upper triangle, column-major,
+# off-diagonals scaled by sqrt(2).
+# ---------------------------------------------------------------------------
+
+def _svec_index(m):
+    rows, cols = np.triu_indices(m)
+    order = np.lexsort((rows, cols))            # column-major over upper triangle
+    rows, cols = rows[order], cols[order]
+    scale = np.where(rows == cols, 1.0, np.sqrt(2.0))
+    return rows, cols, scale
+
+
+def bounds_direct(D, beta, K, obs=PLAQ, verbose=False, settings=None, built=None):
+    import clarabel
+    alg, blocks, eqs, loops, idx = built or build(D, beta, K, verbose)
+    nvar = len(loops)                            # w_1..w_n; w_0 = 1 is a constant
+    Arows, Acols, Avals, b, cones = [], [], [], [], []
+    r0 = 0
+    # equalities:  sum_k c_k w_k = -c_0   ->  A x + s = b, s in Zero cone
+    for e in eqs:
+        for k, v in e.items():
+            if k:
+                Arows.append(r0)
+                Acols.append(idx[k] - 1)
+                Avals.append(v)
+        b.append(-e.get((), 0.0))
+        r0 += 1
+    cones.append(clarabel.ZeroConeT(len(eqs)))
+    # PSD blocks:  svec(M(w)) = s,  A x + s = b  with A = -svec(E_k), b = svec(M_const)
+    for blk in blocks:
+        keys = blk['keys']
+        m = len(keys)
+        rr, cc, sc = _svec_index(m)
+        for t, (i, j, f) in enumerate(zip(rr, cc, sc)):
+            k = keys[i][j]
+            if k:
+                Arows.append(r0 + t)
+                Acols.append(idx[k] - 1)
+                Avals.append(-f)
+                b.append(0.0)
+            else:
+                b.append(f)
+        r0 += len(rr)
+        cones.append(clarabel.PSDTriangleConeT(m))
+    A = sp.csc_matrix((Avals, (Arows, Acols)), shape=(r0, nvar))
+    b = np.array(b)
+    P = sp.csc_matrix((nvar, nvar))
+    tgt = idx[alg.canonical(obs)] - 1
+    out = {}
+    for sense, sgn in (('min', 1.0), ('max', -1.0)):
+        q = np.zeros(nvar)
+        q[tgt] = sgn
+        st = clarabel.DefaultSettings()
+        st.verbose = False
+        for kk, vv in (settings or {}).items():
+            setattr(st, kk, vv)
+        t0 = time.time()
+        sol = clarabel.DefaultSolver(P, q, A, b, cones, st).solve()
+        val = float(sol.x[tgt]) if sol.x is not None else np.nan
+        out[sense] = (val, str(sol.status), round(time.time() - t0, 1))
+    return out
+
+
+def bounds_scs(D, beta, K, obs=PLAQ, verbose=False, eps=1e-7, max_iters=200000,
+               built=None):
+    """Same program via SCS (first-order, low memory).
+
+    SCS vectorises a PSD block as its lower triangle, column-major, with
+    off-diagonals scaled by sqrt(2); for a symmetric block that is the upper
+    triangle row-major, which is what is built here.
+    """
+    import scs
+    alg, blocks, eqs, loops, idx = built or build(D, beta, K, verbose)
+    nvar = len(loops)
+    Ar, Ac, Av, b = [], [], [], []
+    r0 = 0
+    for e in eqs:
+        for k, v in e.items():
+            if k:
+                Ar.append(r0)
+                Ac.append(idx[k] - 1)
+                Av.append(v)
+        b.append(-e.get((), 0.0))
+        r0 += 1
+    nz = r0
+    sizes = []
+    for blk in blocks:
+        keys = blk['keys']
+        m = len(keys)
+        t = 0
+        for j in range(m):                 # lower triangle, column-major
+            for i in range(j, m):
+                f = 1.0 if i == j else np.sqrt(2.0)
+                k = keys[i][j]
+                if k:
+                    Ar.append(r0 + t)
+                    Ac.append(idx[k] - 1)
+                    Av.append(-f)
+                    b.append(0.0)
+                else:
+                    b.append(f)
+                t += 1
+        r0 += t
+        sizes.append(m)
+    A = sp.csc_matrix((Av, (Ar, Ac)), shape=(r0, nvar))
+    b = np.array(b)
+    tgt = idx[alg.canonical(obs)] - 1
+    out = {}
+    for sense, sgn in (('min', 1.0), ('max', -1.0)):
+        c = np.zeros(nvar)
+        c[tgt] = sgn
+        t0 = time.time()
+        solver = scs.SCS(dict(A=A, b=b, c=c), dict(z=nz, s=sizes),
+                         eps_abs=eps, eps_rel=eps, max_iters=max_iters, verbose=False)
+        sol = solver.solve()
+        out[sense] = (float(sol['x'][tgt]), sol['info']['status'],
+                      round(time.time() - t0, 1))
+    return out

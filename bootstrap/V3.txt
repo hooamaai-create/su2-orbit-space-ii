@@ -1,0 +1,4 @@
+  D=4 K=4: 12 Gram blocks (largest [49, 30, 24, 19]), 1 equations, 29 loop variables [4.8s]
+  4D beta=2.3 K=4 (loops <= 8): [0.00000, 0.84881]  width 0.849   MC 0.6022 -> brackets  (optimal_inaccurate/optimal_inaccurate, 9s)
+  D=4 K=5: 18 Gram blocks (largest [199, 132, 86, 60]), 6 equations, 267 loop variables [92.1s]
+  D=4 K=5: 18 Gram blocks (largest [199, 132, 86, 60]), 6 equations, 267 loop variables [90.9s]

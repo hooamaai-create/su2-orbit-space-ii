@@ -97,3 +97,31 @@ Pass iff, in each dimension:
 (d) the 2% negative control is caught at |z| > 5 in every seed.
 **If V1″ fails, the equations are treated as wrong, and no bound is reported
 until the fault is found.**
+
+## V1″, V2, V3 scored 2026-10-02 09:32 UTC
+
+- **V1″ PASS** (`V1pp.txt`). 2D: combined max |z| = 1.90 (threshold 3.93);
+  cross-seed correlations +0.114, −0.097, −0.007 (limit ±0.274); the 2%
+  control is caught at 43–52σ. 4D: combined max |z| = 1.09 (threshold 3.14);
+  full-covariance χ² = 1.7/6 (p = 0.95); control caught at 7.6–12.3σ. The
+  earlier V1/V1′ outliers came from 20-bin error estimates (Student t) and are
+  gone at 50 bins. **The loop equations are right.**
+- **V2 PASS** (`V2.txt`). 2D bounds bracket the exact plaquette:
+  β = 1: [0.1986, 0.2774] around 0.2402; β = 2: [0.3176, 0.4986] around 0.4331;
+  β = 4: [0.4414, 0.7078] around 0.6580 (loops ≤ 12).
+- **V3 PASS** (`V3.txt`, `V3_K5.txt`). 4D, β = 2.3: [0, 0.849] (loops ≤ 8),
+  [0, 0.740] (loops ≤ 10), around the Monte Carlo 0.6022.
+
+Engineering, kept on the record: the cvxpy formulation was killed by the
+memory limit (exit 137) at loops ≤ 10 in 4D. Two direct solver paths,
+Clarabel and SCS, reproduce the cvxpy results to 6 decimals on every case that
+fits. SCS solves the 4D loops ≤ 10 case in 224 MB.
+
+**Where this stands against the literature.** The instrument is validated, but
+it is far weaker than published work: Kazakov–Zheng-style SU(2) bootstraps
+reach loops of length 24 and 4D plaquette bounds within 0.1% of Monte Carlo
+(arXiv:2404.16925). These bounds reach length 10, width 0.74. The difference
+comes from symmetry block-diagonalisation of the Gram matrices,
+reflection-positivity constraints, and compute. None of these numbers is
+certified: they come from a floating-point solver, with no exact dual
+certificate checked.

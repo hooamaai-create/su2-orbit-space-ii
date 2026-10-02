@@ -1,0 +1,11 @@
+6 distinct equations from all loops of lengths (4, 6) (D=4); 35 distinct loops (max length 10)
+residual / typical term size: median 4.89e-04, max 1.16e-03
+|z| > 3: 0 of 6 equations;  max |z| = 2.19;  mean z^2 = 1.62 (about 1 if all equations hold; equations are correlated)
+V1' (a) max|z| 2.19 < z_N 3.14: True;  (b) mean z^2 < 2: True
+   worst eq 3: residual +5.77e-03 +- 2.6e-03  (z = +2.19)
+   worst eq 4: residual +5.66e-03 +- 3.0e-03  (z = +1.89)
+   worst eq 5: residual +2.71e-03 +- 3.2e-03  (z = +0.85)
+   [V1 run-twice worst, eq 5]: z = +0.85; terms: +3.000*w(-4, -3, -2, 4, 3, 2), -2.300*w(-4, -3, -2, 3, 4, 2), -2.300*w(-4, -3, -2, -1, 2, 4, 3, 1), -2.300*w(-4, -4, -3, -2, 4, 3, 4, 2), +2.300*w(-4, -3, -2, -1, 2, 1, -2, 4, 3, 2), +2.300*w(-4, -3, -4, -2, 3, 4, 2, -3, 4, 3), +2.300*w(-4, -3, -2, 3, 2, -3, -2, 4, 3, 2)
+V1 (every equation within 3 sigma, as registered) -> PASS
+negative control (one coefficient off by 2%): z = +8.3  -> caught
+V1' (c) control caught at |z| > 5: True  ->  V1' PASS
