@@ -36,3 +36,40 @@ flux line winding x.
   p > 0.01 and both alternatives are worse by Δχ² > 9.
 - Reading: the smallest κ at which K2 holds is where the particle appears.
   K0 failing means the engine is wrong at κ = 0 and nothing else is scored.
+
+---
+
+## Scored 2026-10-02 01:32 UTC (appended; everything above is unchanged)
+
+`analyse_twoplanes.py` ran byte-identical to its pre-data commit (d548d3b).
+
+- **K0 FAIL.** At κ = 0, L = 10: λ(1) = 0.0165(54), λ(2) = 0.0247(67), both
+  > 3σ. (L = 6, 8 pass.) **By the registered rule, nothing else is scored.**
+- K1 PASS, for the record: κ = 1, L = 10 gives m(1→2) = 1.260(85) against
+  SPEC-01's 1.168(58), 0.89σ.
+- Unscored, for the record: the registered particle rule gave "particle" at
+  κ = 0.75 only. It called κ = 1, the known 4D glueball, "no particle",
+  because L = 6 (L√σ ≈ 2.3) shifts the mass (χ² 12.7/2). ELIM-01 excluded
+  L = 6 for exactly this reason. That is a design error in this spec.
+
+## Post-hoc (`posthoc.py`, written after reading the report)
+
+- κ = 0, single operators (no maximisation, so unbiased): 2 of 24 values beyond
+  3σ, both at L = 10, t = 2, in the 10-step smeared operators (+3.1σ, +3.7σ).
+  The same operator is −2.3σ at t = 1, so this is not a propagating state, but
+  it is more than chance. λ_max at t = 1 is inside its noise floor; at t = 2 it
+  is above the 95th percentile.
+- With L ≥ 8 only, κ = 0.75 and κ = 1 are both particle-like: masses 3.19/3.11
+  and 1.449/1.441; flux-line χ² 16 and 61, scale-invariant χ² 12 and 60, for
+  1 dof.
+- κ = 0.25, 0.5: everything at the noise floor, except one 95th-percentile
+  excursion at κ = 0.5, L = 10, t = 1.
+
+## K0-RETEST — registered now, before it is run
+
+The K0 excursion decides whether the κ = 0 engine can be trusted. Re-test: one
+fresh κ = 0, L = 10 ensemble, new seed, 1500 measurements, same operators.
+**Pass iff all 8 single-operator values (4 operators × t = 1, 2) are within 3σ
+of 0.** Pass → the original excursion is attributed to a fluctuation (the
+original K0 verdict still stands as recorded). Fail again at L = 10 → a real
+problem at κ = 0, and the experiment is void until it is found.
