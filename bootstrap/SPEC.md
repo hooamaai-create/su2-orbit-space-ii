@@ -25,7 +25,7 @@ it claims nothing new.
 ## Validation gates (all must pass before any bound is reported as a bound)
 
 - **V1 (the equations are right).** Every generated loop equation, evaluated
-  with Monte Carlo Wilson loops (4D, β = 2.3, L = 6, the validated 
+  with Monte Carlo Wilson loops (4D, β = 2.3, L = 6, the validated `contrast/`
   engine), has residual within 3σ of 0, and the χ² over all equations is
   consistent with their number (p > 0.001).
 - **V2 (the bounds are right where the answer is known).** In 2D the exact
