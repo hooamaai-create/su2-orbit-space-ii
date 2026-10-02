@@ -73,3 +73,10 @@ fresh κ = 0, L = 10 ensemble, new seed, 1500 measurements, same operators.
 of 0.** Pass → the original excursion is attributed to a fluctuation (the
 original K0 verdict still stands as recorded). Fail again at L = 10 → a real
 problem at κ = 0, and the experiment is void until it is found.
+
+## K0-RETEST scored 2026-10-02 01:53 UTC
+
+**PASS.** Fresh κ = 0, L = 10 ensemble (new seed), all 8 single-operator values
+within 1σ of 0 (largest |z| = 1.0). The κ = 0 engine is sound, and the
+original L = 10 excursion is attributed to a fluctuation. As registered, the
+original K0 verdict stands: TWOPLANES-01 remains formally unscored.
