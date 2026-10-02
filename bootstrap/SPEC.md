@@ -66,3 +66,34 @@ Pass in each dimension iff all of:
 (b) mean z² < 2 (correct equations give ≈ 1; correlations inflate it modestly);
 (c) the 2% negative control is caught at |z| > 5.
 The 4D equation that was worst twice is reported by name, whatever happens.
+
+## V1′ scored 2026-10-02 08:41 UTC
+
+**V1′ FAIL in both dimensions.** 2D (seed 4242): max |z| = 4.26 against
+z_N = 3.93. 4D (seed 4242): mean z² ≥ 2 (max |z| 2.32). Kept as failed.
+
+What the pattern says, not used to rescue the score: the worst 2D equation
+differs between runs (eq 11, then eq 111); 4D residual signs flipped between
+runs, and the twice-worst 4D equation is now +0.58σ. That looks like noise
+plus a mis-calibrated test. With 20 jackknife bins z follows a Student t with
+19 dof, not a normal, and the 4D equations are strongly correlated, so mean z²
+is the wrong statistic. Meanwhile V2 passed: the 2D bounds bracket the exact
+plaquette at every coupling tested.
+
+## V1″ — the decisive version, registered now, before it is run
+
+A wrong equation must reproduce across independent samples; noise must not.
+Three fresh seeds per dimension (2D: β = 4, L = 48, 3000 configurations, loops
+of length 4–10; 4D: β = 2.3, L = 6, 600 configurations, loops of length 4–6),
+50 jackknife bins, per-equation residuals saved.
+Pass iff, in each dimension:
+(a) the per-equation Stouffer-combined z over the three seeds has
+    max |z| < Φ⁻¹(1 − 0.005/N) (N = number of equations);
+(b) every pair of seeds has a z-vector correlation within ±3/√N (no
+    reproducible pattern; 2D only, where N is large enough for this to mean
+    anything);
+(c) 4D: the χ² of the seed-averaged residual vector, using its full jackknife
+    covariance, has p > 0.001;
+(d) the 2% negative control is caught at |z| > 5 in every seed.
+**If V1″ fails, the equations are treated as wrong, and no bound is reported
+until the fault is found.**

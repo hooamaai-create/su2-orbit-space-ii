@@ -20,7 +20,7 @@ SEED = int(os.environ.get('BOOT_SEED', 11))
 if len(sys.argv) > 1:                       # diagnostic overrides: D L beta ncfg lengths...
     D, L, BETA, NCFG = int(sys.argv[1]), int(sys.argv[2]), float(sys.argv[3]), int(sys.argv[4])
     LENGTHS = tuple(int(x) for x in sys.argv[5:]) or LENGTHS
-    NB = 20
+    NB = int(os.environ.get('BOOT_NB', 20))
 
 
 def closed_loops(alg, n):
@@ -117,6 +117,12 @@ def main():
     zb = rb.mean() / np.sqrt((NB - 1) * np.mean((rp - rp.mean()) ** 2))
     print(f'negative control (one coefficient off by 2%): z = {zb:+.1f}  '
           f'-> {"caught" if abs(zb) > 3 else "NOT caught (test has no power)"}')
+    import json
+    out_path = os.environ.get('BOOT_DUMP')
+    if out_path:
+        json.dump(dict(z=z.tolist(), res=full.tolist(), err=err.tolist(),
+                       reps=reps.tolist(), control_z=float(zb), N=len(z)),
+                  open(out_path, 'w'))
     print(f"V1' (c) control caught at |z| > 5: {abs(zb) > 5}  ->  V1' {'PASS' if okp[0] and okp[1] and abs(zb) > 5 else 'FAIL'}")
 
 

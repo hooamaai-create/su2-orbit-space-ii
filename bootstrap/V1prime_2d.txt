@@ -1,0 +1,10 @@
+120 distinct equations from all loops of lengths (4, 6, 8, 10) (D=2); 227 distinct loops (max length 14)
+residual / typical term size: median 2.91e-04, max 1.25e-02
+|z| > 3: 3 of 120 equations;  max |z| = 4.26;  mean z^2 = 1.70 (about 1 if all equations hold; equations are correlated)
+V1' (a) max|z| 4.26 < z_N 3.93: False;  (b) mean z^2 < 2: True
+   worst eq 111: residual +1.77e-03 +- 4.2e-04  (z = +4.26)
+   worst eq 115: residual +1.61e-03 +- 4.4e-04  (z = +3.64)
+   worst eq 19: residual -2.52e-03 +- 8.2e-04  (z = -3.06)
+V1 (every equation within 3 sigma, as registered) -> FAIL
+negative control (one coefficient off by 2%): z = +39.8  -> caught
+V1' (c) control caught at |z| > 5: True  ->  V1' FAIL

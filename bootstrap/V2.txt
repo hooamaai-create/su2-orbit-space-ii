@@ -1,0 +1,10 @@
+  D=2 K=5: 12 Gram blocks (largest [19, 14, 13, 10]), 3 equations, 24 loop variables [0.0s]
+  2D beta=1.0 K=5 (loops <= 10): [0.000000, 0.336650]  width 3.37e-01   exact 0.240194  -> brackets  (optimal, 0s)
+  D=2 K=6: 16 Gram blocks (largest [49, 48, 39, 30]), 19 equations, 119 loop variables [0.3s]
+  2D beta=1.0 K=6 (loops <= 12): [0.198583, 0.277357]  width 7.88e-02   exact 0.240194  -> brackets  (optimal, 19s)
+  prob.solve(solver=solver)
+  2D beta=2.0 K=5 (loops <= 10): [0.000000, 0.553667]  width 5.54e-01   exact 0.433127  -> brackets  (optimal_inaccurate, 0s)
+  2D beta=2.0 K=6 (loops <= 12): [0.317603, 0.498641]  width 1.81e-01   exact 0.433127  -> brackets  (optimal, 18s)
+  2D beta=4.0 K=5 (loops <= 10): [0.000000, 0.741231]  width 7.41e-01   exact 0.658047  -> brackets  (optimal_inaccurate, 0s)
+  2D beta=4.0 K=6 (loops <= 12): [0.441367, 0.707806]  width 2.66e-01   exact 0.658047  -> brackets  (optimal_inaccurate, 19s)
+V2 -> PASS
