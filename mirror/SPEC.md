@@ -50,3 +50,38 @@ M1 or M2 failing at a d is reported as "no particle at that width".
    themselves, behaving like matter living on the 2D sheet. That still counts
    as a particle in the 2D world: the test is whether its energy is fixed as
    the box grows, not what it is made of.
+
+---
+
+## Scored 2026-10-02 00:34 UTC (appended; everything above is unchanged)
+
+`analyse_mirror.py` ran byte-identical to its pre-data commit (af5147b).
+
+- **M0 PASS.** d = 1 is empty: C(1)/C(0) = +0.0033(41), +0.0005(52),
+  +0.0000(45) at L_x = 6, 8, 12. Its flux line matches the exact 2D energy
+  (4.149(274) at L_x = 6 against −6 ln u = 4.41).
+- **d = 2: "no particle" as registered.** M1 FAIL: the signal is there
+  (C(1)/C(0) ≈ 0.025 at 4.7σ, 4.2σ, 6.0σ) but misses the 5σ rule at two box
+  sizes. M2 undecided: m(1→2) errors are 0.6–0.9.
+- **d = 3: "no particle" as registered.** M1 PASS. M2 undecided: m(1→2) =
+  1.20(27), 1.52(33), 1.88(52); the noise is too large to separate the fits.
+- **d = 4: PARTICLE.** m(1→2) = 1.864(307), 1.688(254), 1.697(279):
+  constant, p = 0.89; the flux-line fit is worse by Δχ² = 10.0.
+- **d = 6: PARTICLE.** m(1→2) = 1.443(155), 1.705(194), 1.642(179):
+  constant, p = 0.52; Δχ² = 14.2.
+- **M3 FAIL.** At d = 6, L_x = 12 the mass is 1.642, 41% above the 4D value
+  1.168. Walls and L_t = 16 are not the 4D periodic box.
+
+**Registered reading: the particle appears at d = 4.**
+
+**Post-hoc, reported with equal weight** (`posthoc_m01.py`, written after
+the report): at d = 2 and 3 the registered statistic was too noisy, not
+contradicted. Running the same fit with the precise energy m(0→1), an upper
+bound whose box dependence still decides particle vs flux line, gives
+**particle-like at every d ≥ 2**: constant across L_x with p = 0.92, 0.48,
+0.89, 0.07 at d = 2, 3, 4, 6, and the flux-line fit rejected at χ² = 78, 186,
+406, 565 (for 2 dof). The d = 1 control stays undecided, because its channel
+is empty and m(0→1) there is noise. The particle gets lighter as the room
+widens: 3.68 → 2.84 → 2.40 → 2.03, moving toward the 4D value. This upgrades
+nothing in the registered score. It says the registered test was underpowered
+at d = 2, 3, and a fresh registration with more statistics would settle it.
