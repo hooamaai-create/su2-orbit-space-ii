@@ -117,7 +117,7 @@ general m follows from a_{m+1}/a_m = 1/(4(m+1)(m+2)). **Pass:** the identity
 holds exactly.
 
 **N3 — certified G(R), R = 0.8** (covers β ≤ 0.1333). Arb point enclosures of
-g on a (k, θ) grid, plus the S5 slopes. *(Amendment 1, 2026-10-03 01:05 UTC,
+g on a (k, θ) grid, plus the S5 slopes. *(Amendment 1, 2026-10-03 00:57 UTC,
 still before any code: the grid rule, which was meant to be in the first
 commit.)* The grid is k = 0, 0.005, …, 0.8 (161 values) and θ = jπ/400 for
 j = 0…200. Every point of the region is within (0.0025, π/800) of a grid
