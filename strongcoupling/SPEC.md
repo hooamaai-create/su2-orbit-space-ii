@@ -117,7 +117,11 @@ general m follows from a_{m+1}/a_m = 1/(4(m+1)(m+2)). **Pass:** the identity
 holds exactly.
 
 **N3 — certified G(R), R = 0.8** (covers β ≤ 0.1333). Arb point enclosures of
-g on a (k, θ) grid, plus the S5 slopes. **Pass:** every point enclosure is
+g on a (k, θ) grid, plus the S5 slopes. *(Amendment 1, 2026-10-03 01:05 UTC,
+still before any code: the grid rule, which was meant to be in the first
+commit.)* The grid is k = 0, 0.005, …, 0.8 (161 values) and θ = jπ/400 for
+j = 0…200. Every point of the region is within (0.0025, π/800) of a grid
+point, so G_cert = max(upper enclosure) + ½·0.0025 + ½·π/800. **Pass:** every point enclosure is
 finite (relative radius < 10⁻⁶).
 - *Registered prediction:* G_cert ∈ [0.4244, 0.4300]. That is, the supremum
   sits at κ = 0 and the certificate overhead is under 1.5%.
