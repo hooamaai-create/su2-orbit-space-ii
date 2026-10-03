@@ -155,3 +155,20 @@ Theorem A (β*_A = 1/9) stands if N1, N2 and N7 pass. Theorem B (β*_B) also
 needs N3, and is retracted if N4 or N5 fails. N6 failing retracts both.
 Nothing is tuned after data: R, the grid rule, the sample sizes and the
 tolerances are fixed above.
+
+## Scores (2026-10-03 01:01 UTC, after all runs; nothing above was changed)
+
+| check | result | file |
+|---|---|---|
+| N1 radial variance ≤ ¼ on [0, 2] | PASS: every Taylor coefficient of Q/k² is > 0 through order 40; tail < 2·10⁻³⁶ | `EXACT.txt` |
+| N2 transverse variance ≤ ¼ | PASS: exact identity | `EXACT.txt` |
+| N7 geometry | PASS at L = 4 (registered) and at L = 3 | `EXACT.txt` |
+| N3 certified G(0.8) | PASS: G_cert = 0.42763. The largest point value is exactly 4/(3π), at k = 0. Prediction [0.4244, 0.4300] MET | `N3.txt` |
+| N4 formula vs 4D sampling | PASS: all \|z\| ≤ 2.15 | `CROSS.txt` |
+| N5 exact TV vs path bound | PASS: max ratio 0.42440 ≤ G_cert. Prediction "within 2% of 4/(3π)" MET (−0.00%) | `CROSS.txt` |
+| N6 bound below strong-coupling estimate | PASS at all 11 couplings | `THEOREM.txt` |
+
+Both theorems stand as registered:
+
+- Theorem A: β*_A = 1/9.
+- Theorem B: β*_B = 0.12992.

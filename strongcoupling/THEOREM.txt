@@ -1,0 +1,21 @@
+SC-01 theorem constants
+  Theorem A (analytic, G = 1/2):  beta*_A = 1/9 = 0.111111
+  Theorem B (computer-assisted, G_cert = 0.4276266770):  beta*_B = 0.129916   (range of validity beta <= 0.8/6 = 0.133333)
+  sharp-constant value if G = 4/(3 pi):  beta* = pi/24 = 0.130900
+
+  gap lower bound m(beta), lattice units  [N6: vs strong-coupling estimate -4 ln u]
+   beta   unweighted -ln(18 G beta)   A: m_A(beta)   B: m_B(beta)   est. -4 ln u   bound < est?
+  0.010           2.5643                  4.4267         4.6087        23.9659   True
+  0.020           1.8712                  3.5568         3.7642        21.1933   True
+  0.030           1.4657                  2.9748         3.2079        19.5716   True
+  0.050           0.9549                  2.1050         2.3927        17.5285   True
+  0.070           0.6184                  1.3902         1.7416        16.1830   True
+  0.090           0.3671                  0.7234         1.1558        15.1783   True
+  0.100           0.2617                  0.3878         0.8718        14.7572   True
+  0.110           0.1664                  0.0399         0.5874        14.3763   True
+  0.120           0.0794                     ---         0.2978        14.0286   True
+  0.125           0.0386                     ---         0.1494        13.8655   True
+  0.129           0.0071                     ---         0.0281        13.7397   True
+N6 -> PASS (every certified bound below the strong-coupling estimate)
+
+  small-beta behaviour: m_B ~ ln(1/(2 G beta)) = 1 x ln(1/beta) + const; estimate ~ 4 x ln(1/beta). The bound has the right sign and form, not the right slope.

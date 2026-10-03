@@ -1,0 +1,20 @@
+N1  Q = Z^2/4 - Z Z'' + Z'^2,  coefficients of k^(2m):
+      m=0: 0
+      m=1: 1/32
+      m=2: 7/1536
+      m=3: 7/23040
+      m=4: 1/81920
+      q_0 == 0: True;  q_m > 0 for 1 <= m <= 40: True
+      tail bound (m > 40, k <= 2): 1.801e-36
+      certified min of Q(k)/k^2 on [0, 2] >= 0.031250  (q_1 = 1/32 = 0.031250)
+N1 -> PASS: radial variance <= 1/4 on [0, 2]
+
+N2  coefficient of k^(2m) in Z/4 - Z'/k equals a_m m/(4(m+2)) >= 0 for m = 0..60: True
+      (general m: a_(m+1)/a_m = 1/(4(m+1)(m+2)) gives the identity for every m, so Z/4 - Z'/k >= 0 for all k)
+N2 -> PASS: transverse variance <= 1/4 for all k
+
+N7  L=4: 1024 links, 1536 plaquettes; every link has 18 neighbours each sharing one plaquette: True
+      time-offset profiles: {'temporal': [{'0': 6, '1/2': 12}], 'spatial': [{'0': 12, '1/2': 4, '1': 2}]}
+N7  L=3: 324 links, 486 plaquettes; every link has 18 neighbours each sharing one plaquette: True
+      time-offset profiles: {'temporal': [{'0': 6, '1/2': 12}], 'spatial': [{'0': 12, '1/2': 4, '1': 2}]}
+N7 -> PASS (registered, L=4);  L=3 (also claimed in the theorem): PASS

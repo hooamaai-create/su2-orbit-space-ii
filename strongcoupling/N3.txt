@@ -1,0 +1,10 @@
+SC-01 check N3: certified sup of g(k, theta) over k <= 0.8, theta in [0, pi/2]
+grid: 161 x 201 = 32361 rigorous point enclosures (Arb, 80-bit), 5s
+largest point upper bound 0.4244131816 at k = 0.000, theta = 0*pi/400
+value at k = 0 (any theta): 4/(3 pi) = 0.4244131816
+between-grid slack 1/2*0.0025 + 1/2*pi/800 = 0.003213
+largest relative ball radius: 1.05e-22
+G_cert(0.8) = 0.4276266770
+max_theta upper g along k (every 20th k): 0.42441, 0.42431, 0.42399, 0.42346, 0.42273, 0.42180, 0.42067, 0.41936, 0.41787
+N3 -> PASS (all enclosures tight, rel. radius < 1e-6)
+registered prediction G_cert in [0.4244, 0.4300]: MET

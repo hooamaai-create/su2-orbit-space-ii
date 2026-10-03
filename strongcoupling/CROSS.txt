@@ -1,0 +1,15 @@
+N4  g(k, theta): direct 4D sampling (n = 1e6) vs the S4 integral
+      k=0.0 theta=0.000:  MC 0.42466 +- 0.00026   integral 0.42441   z = +0.92
+      k=0.4 theta=0.000:  MC 0.41955 +- 0.00026   integral 0.41898   z = +2.15
+      k=0.4 theta=0.785:  MC 0.42112 +- 0.00026   integral 0.42086   z = +0.98
+      k=0.4 theta=1.571:  MC 0.42279 +- 0.00026   integral 0.42273   z = +0.24
+      k=0.8 theta=0.000:  MC 0.40355 +- 0.00026   integral 0.40361   z = -0.24
+      k=0.8 theta=1.571:  MC 0.41784 +- 0.00026   integral 0.41787   z = -0.13
+N4 -> PASS (every |z| < 4)
+
+N5  exact TV(vMF(kappa), vMF(kappa+Delta)) / (|Delta|/2), 20000 random admissible pairs, R = 0.8
+      max ratio 0.42440 at kappa=[ 0.021 -0.022], kappa+Delta=[-0.014 -0.014]
+      median 0.41906;  G_cert = 0.42763;  4/(3 pi) = 0.42441
+      symmetric pairs (s, 0) vs (-s, 0), ratio TV/s for s = 1e-3, 0.01, 0.05, 0.133: 0.42441, 0.42441, 0.42435, 0.42398
+N5 -> PASS (max ratio <= G_cert)
+registered prediction "max ratio within 2% of 4/(3 pi)": MET (-0.00%)
