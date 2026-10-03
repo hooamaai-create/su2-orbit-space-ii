@@ -52,3 +52,17 @@ measured earlier in this repo (ELIM-01: m₀₊₊/√σ and σa² at β = 2.2, 
 
 No pass/fail decides a theorem here. B1's β_wall is a rigorous statement
 about the method's ceiling. Everything else is reported, not proved.
+
+## Results (2026-10-03 02:07 UTC, after the run; nothing above was changed; output in `BETA_INF.txt`)
+
+- **β_wall = 0.131031**, certified by Arb bisection. Prediction [0.1300, 0.1320]
+  **MET**. Above β_wall, Dobrushin's condition is provably false. SC-01's
+  β*_B = 0.12992 lies 0.85% below this ceiling, so better estimates of the
+  same method cannot push it meaningfully further.
+- c_low is increasing on the grid and reaches 1.000000 at β = 100, so 18c → 18.
+  But 18·c_low(2.4) = 13.91, not > 15. The prediction is **MISSED**: at the
+  physical couplings the method fails by a factor of about 14, not more than
+  15. The conclusion does not change.
+- B2: the glueball measured at β = 2.2–2.4 has m_lat = 1.81, 1.42, 1.00. SC-01
+  gives nothing there. The one-loop rate implies m_lat ~ 10⁻⁹ by β = 10. This
+  is a rough extrapolation, not a proof.

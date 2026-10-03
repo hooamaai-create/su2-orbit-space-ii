@@ -1,0 +1,33 @@
+SC-02 / B1: rigorous lower bound on the Dobrushin coefficient, c(beta) >= c_low(beta)
+   beta      c_low(beta) [Arb ball]                    18*c_low   condition 18c < 1 possible?
+    0.05             [0.0212175649283 +/- 1.75e-14]     0.3819   yes (not excluded)
+     0.1             [0.0424165776367 +/- 2.86e-14]     0.7635   yes (not excluded)
+   0.125             [0.0530033449298 +/- 1.66e-14]     0.9541   yes (not excluded)
+    0.13             [0.0551193842916 +/- 4.44e-14]     0.9921   yes (not excluded)
+   0.131             [0.0555425350417 +/- 2.77e-14]     0.9998   yes (not excluded)
+   0.132             [0.0559656664083 +/- 2.68e-14]     1.0074   NO (provably fails)
+   0.135             [0.0572349427397 +/- 1.09e-14]     1.0302   NO (provably fails)
+     0.2             [0.0846851169842 +/- 4.18e-14]     1.5243   NO (provably fails)
+     0.5              [0.209163915201 +/- 3.09e-13]     3.7650   NO (provably fails)
+       1              [0.401239897675 +/- 4.09e-13]     7.2223   NO (provably fails)
+     2.2              [0.735601941591 +/- 3.91e-13]    13.2408   NO (provably fails)
+     2.4              [0.772983456097 +/- 2.15e-14]    13.9137   NO (provably fails)
+       5              [0.975039641096 +/- 3.03e-13]    17.5507   NO (provably fails)
+      10              [0.999764125327 +/- 1.85e-14]    17.9958   NO (provably fails)
+     100                  [1.00000000000 +/- 3e-17]    18.0000   NO (provably fails)
+  c_low increasing along the grid: True;  c_low(100) = 1.000000 (-> 1 as beta -> inf: both laws concentrate on opposite points)
+  beta_wall in [0.13103077, 0.13103077]  (certified: 18 c_low < 1 at the left end, > 1 at the right end)
+  SC-01 certified beta*_B = 0.12992 -> 0.85% below the wall
+  registered prediction beta_wall in [0.1300, 0.1320]: MET
+  registered prediction c_low increasing, 18 c_low(2.4) > 15: MISSED (18 c_low(2.4) = 13.914)
+
+SC-02 / B2: what a continuum proof would need (ELIM-01 numbers, not proofs)
+  beta = 2.2: measured glueball mass in lattice units m = 3.62 x sqrt(0.2491) = 1.81;  SC-01 bound: none (beta > 0.13)
+  beta = 2.3: measured glueball mass in lattice units m = 3.75 x sqrt(0.1426) = 1.42;  SC-01 bound: none (beta > 0.13)
+  beta = 2.4: measured glueball mass in lattice units m = 3.59 x sqrt(0.0777) = 1.00;  SC-01 bound: none (beta > 0.13)
+  asymptotic freedom (one loop): lattice-unit gap shrinks like exp(-2.692 beta);
+     beta =  5: expected m_lat ~ 9.1e-04  (rough extrapolation from beta = 2.4)
+     beta = 10: expected m_lat ~ 1.3e-09  (rough extrapolation from beta = 2.4)
+     beta = 20: expected m_lat ~ 2.7e-21  (rough extrapolation from beta = 2.4)
+  A continuum proof must show m_lat(beta) > 0 with exactly this rate. A worst-case
+  single-link method cannot: at large beta, c -> 1 and 18c -> 18.

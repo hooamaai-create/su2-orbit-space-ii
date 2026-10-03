@@ -99,6 +99,29 @@ gap bound stays below the strong-coupling glueball estimate (N6).
   compact single-link spaces and nearest-neighbour specifications.
 - **Not refereed.** No human expert has checked this argument.
 
+## Setting β → ∞ (SC-02, `BETA_INF_SPEC.md`, `BETA_INF.txt`)
+
+- **At β = ∞ exactly** every plaquette is forced to 1. Nothing fluctuates and
+  every gauge-invariant quantity is a constant, so there is no gap to
+  measure. The meaningful limit is β → ∞ with the lattice spacing going to
+  zero. That limit is the Clay problem.
+- **The proof cannot be pushed there, and this is now proved.** Consider a
+  configuration where five staples cancel and the sixth flips sign. It gives
+  a rigorous lower bound on the influence c(β). That bound crosses 1/18 at
+  **β_wall = 0.131031**, certified with Arb. Above β_wall, Dobrushin's
+  condition is false, not just hard to verify. SC-01 already reaches
+  0.12992, within 0.85% of this ceiling.
+- **How badly it fails grows with β.** The total influence 18c is 13.9 at
+  β = 2.4, where real glueballs were measured (m ≈ 1.0 in lattice units),
+  and it tends to 18 as β → ∞. Worst-case, one-link-at-a-time arguments
+  cannot reach the continuum. That needs methods that use typical
+  configurations at many scales, such as Balaban's renormalization-group
+  programme.
+- One registered prediction (18c > 15 at β = 2.4) missed. The measured value
+  is 13.9.
+
+Reproduce: `python strongcoupling/beta_inf.py > strongcoupling/BETA_INF.txt`
+
 ## Reproduce (from the repo root, about 30 s total)
 
 ```
